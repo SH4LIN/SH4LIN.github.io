@@ -65,6 +65,19 @@ export default function ParticleCanvas() {
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
+          initial={{ opacity: 0 }}
+          animate={{
+            x: [0, particle.xMovement, 0],
+            y: [0, particle.yMovement, 0],
+            opacity: [0, 0.2, 0.5, 0.2, 0],
+          }}
+          transition={{
+            duration: particle.duration,
+            delay: particle.delay,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            repeatDelay: 0,
+          }}
           style={{
             position: 'absolute',
             left: `${particle.x}%`,
@@ -73,17 +86,6 @@ export default function ParticleCanvas() {
             height: particle.size,
             borderRadius: '50%',
             background: 'rgba(99, 102, 241, 0.4)',
-          }}
-          animate={{
-            x: [0, particle.xMovement, 0],
-            y: [0, particle.yMovement, 0],
-            opacity: [0.2, 0.5, 0.2],
-          }}
-          transition={{
-            duration: particle.duration,
-            delay: particle.delay,
-            repeat: Infinity,
-            ease: 'easeInOut',
           }}
         />
       ))}

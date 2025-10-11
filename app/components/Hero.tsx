@@ -47,7 +47,8 @@ export default function Hero({ profile }: { profile: ProfileData }) {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
       }
     }
   }
@@ -59,7 +60,7 @@ export default function Hero({ profile }: { profile: ProfileData }) {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: 'easeOut' as const
+        ease: [0.6, 0.05, 0.01, 0.9] as const
       }
     }
   }
@@ -84,7 +85,11 @@ export default function Hero({ profile }: { profile: ProfileData }) {
           <motion.span 
             className="cursor"
             animate={{ opacity: [1, 0, 1] }}
-            transition={{ duration: 0.7, repeat: Infinity }}
+            transition={{ 
+              duration: 0.7, 
+              repeat: Infinity,
+              ease: 'easeInOut'
+            }}
           >
             |
           </motion.span>
@@ -96,7 +101,11 @@ export default function Hero({ profile }: { profile: ProfileData }) {
           <motion.a 
             href="#contact" 
             className="btn btn-primary"
-            whileHover={{ y: -3, scale: 1.02 }}
+            whileHover={{ 
+              y: -3, 
+              scale: 1.02,
+              transition: { duration: 0.2 }
+            }}
             whileTap={{ scale: 0.98 }}
           >
             <span>Get In Touch</span>
@@ -104,7 +113,11 @@ export default function Hero({ profile }: { profile: ProfileData }) {
           <motion.a 
             href="#experience" 
             className="btn btn-secondary"
-            whileHover={{ y: -3, scale: 1.02 }}
+            whileHover={{ 
+              y: -3, 
+              scale: 1.02,
+              transition: { duration: 0.2 }
+            }}
             whileTap={{ scale: 0.98 }}
           >
             <span>View My Work</span>
@@ -114,7 +127,11 @@ export default function Hero({ profile }: { profile: ProfileData }) {
           variants={itemVariants}
           className="scroll-indicator"
           animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          transition={{ 
+            duration: 2, 
+            repeat: Infinity,
+            ease: 'easeInOut'
+          }}
         >
           <div className="mouse">
             <motion.div 
@@ -123,7 +140,11 @@ export default function Hero({ profile }: { profile: ProfileData }) {
                 y: [10, 30],
                 opacity: [1, 0]
               }}
-              transition={{ duration: 1.5, repeat: Infinity }}
+              transition={{ 
+                duration: 1.5, 
+                repeat: Infinity,
+                ease: 'easeInOut'
+              }}
             />
           </div>
           <div className="arrow-container">
@@ -138,7 +159,8 @@ export default function Hero({ profile }: { profile: ProfileData }) {
                 transition={{
                   duration: 1.5,
                   delay: i * 0.2,
-                  repeat: Infinity
+                  repeat: Infinity,
+                  ease: 'easeInOut'
                 }}
               />
             ))}
@@ -150,16 +172,19 @@ export default function Hero({ profile }: { profile: ProfileData }) {
           <motion.div 
             key={i}
             className={`shape shape-${i + 1}`}
+            initial={{ opacity: 0 }}
             animate={{
               x: [0, 100, -100, 0],
               y: [0, -100, 100, 0],
               rotate: [0, 120, 240, 360],
+              opacity: [0, 0.3, 0.3, 0.3, 0.3],
             }}
             transition={{
               duration: 20,
               delay: i * 5,
               repeat: Infinity,
-              ease: 'easeInOut' as const
+              ease: 'linear',
+              opacity: { duration: 2, ease: 'easeIn' }
             }}
           />
         ))}

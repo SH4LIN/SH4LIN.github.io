@@ -58,7 +58,7 @@ export default function Contact({ profile }: { profile: any }) {
               href={`mailto:${profile.email}`} 
               className="contact-item"
               variants={itemVariants}
-              whileHover={{ x: 10 }}
+              whileHover={{ x: 10, transition: { duration: 0.2, ease: "easeOut" } }}
             >
               <span className="contact-icon">📧</span>
               <span>{profile.email}</span>
@@ -67,7 +67,7 @@ export default function Contact({ profile }: { profile: any }) {
               href={`tel:${profile.phone.replace(/\s/g, '')}`} 
               className="contact-item"
               variants={itemVariants}
-              whileHover={{ x: 10 }}
+              whileHover={{ x: 10, transition: { duration: 0.2, ease: "easeOut" } }}
             >
               <span className="contact-icon">📱</span>
               <span>{profile.phone}</span>
@@ -78,7 +78,7 @@ export default function Contact({ profile }: { profile: any }) {
               rel="noopener noreferrer" 
               className="contact-item"
               variants={itemVariants}
-              whileHover={{ x: 10 }}
+              whileHover={{ x: 10, transition: { duration: 0.2, ease: "easeOut" } }}
             >
               <span className="contact-icon">💼</span>
               <span>LinkedIn Profile</span>
@@ -89,7 +89,7 @@ export default function Contact({ profile }: { profile: any }) {
               rel="noopener noreferrer" 
               className="contact-item"
               variants={itemVariants}
-              whileHover={{ x: 10 }}
+              whileHover={{ x: 10, transition: { duration: 0.2, ease: "easeOut" } }}
             >
               <span className="contact-icon">💻</span>
               <span>GitHub Profile</span>
@@ -97,7 +97,7 @@ export default function Contact({ profile }: { profile: any }) {
             <motion.div 
               className="contact-item"
               variants={itemVariants}
-              whileHover={{ x: 10 }}
+              whileHover={{ x: 10, transition: { duration: 0.2, ease: "easeOut" } }}
             >
               <span className="contact-icon">📍</span>
               <span>{profile.location}</span>

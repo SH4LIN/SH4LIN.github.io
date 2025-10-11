@@ -64,7 +64,7 @@ function SkillCategory({ category, variants }: { category: any, variants: any })
       ref={ref}
       className="skill-category"
       variants={variants}
-      whileHover={{ y: -10 }}
+      whileHover={{ y: -10, transition: { duration: 0.2, ease: "easeOut" } }}
     >
       <h3>{category.name}</h3>
       <div className="skills-list">

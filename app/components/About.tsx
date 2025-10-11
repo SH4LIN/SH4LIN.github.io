@@ -47,7 +47,8 @@ export default function About({ profile }: { profile: ProfileData }) {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.2
+                staggerChildren: 0.15,
+                delayChildren: 0.1
             }
         }
     }
@@ -57,7 +58,10 @@ export default function About({ profile }: { profile: ProfileData }) {
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.6 }
+            transition: { 
+                duration: 0.6,
+                ease: [0.6, 0.05, 0.01, 0.9] as const
+            }
         }
     }
 
@@ -68,8 +72,11 @@ export default function About({ profile }: { profile: ProfileData }) {
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ 
+            duration: 0.6,
+            ease: [0.6, 0.05, 0.01, 0.9] as const
+          }}
         >
           <span className="title-number">01.</span>
           <span className="title-text">About Me</span>
@@ -81,9 +88,15 @@ export default function About({ profile }: { profile: ProfileData }) {
               className="profile-card"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              whileHover={{ y: -10 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ 
+                duration: 0.8,
+                ease: [0.6, 0.05, 0.01, 0.9] as const
+              }}
+              whileHover={{ 
+                y: -10,
+                transition: { duration: 0.3, ease: 'easeOut' }
+              }}
             >
               <motion.div 
                 className="profile-glow"
@@ -124,7 +137,10 @@ export default function About({ profile }: { profile: ProfileData }) {
                     key={index}
                     className="stat-item"
                     variants={itemVariants}
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{ 
+                      scale: 1.05,
+                      transition: { duration: 0.2 }
+                    }}
                   >
                     <div className="stat-number" data-target={stat.target}>0</div>
                     <div className="stat-label">{stat.label}</div>

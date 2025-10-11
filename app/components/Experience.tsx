@@ -8,7 +8,8 @@ export default function Experience({ experience }: { experience: any[] }) {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3
+        staggerChildren: 0.2,
+        delayChildren: 0.1
       }
     }
   }
@@ -18,7 +19,10 @@ export default function Experience({ experience }: { experience: any[] }) {
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.6 }
+      transition: { 
+        duration: 0.6,
+        ease: [0.6, 0.05, 0.01, 0.9] as const
+      }
     }
   }
 
@@ -29,8 +33,11 @@ export default function Experience({ experience }: { experience: any[] }) {
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ 
+            duration: 0.6,
+            ease: [0.6, 0.05, 0.01, 0.9] as const
+          }}
         >
           <span className="title-number">02.</span>
           <span className="title-text">Work Experience</span>
@@ -58,12 +65,15 @@ export default function Experience({ experience }: { experience: any[] }) {
                     '0 0 20px rgba(99, 102, 241, 0.4)'
                   ]
                 }}
-                transition={{ duration: 2, repeat: Infinity }}
+                transition={{ 
+                  duration: 2, 
+                  repeat: Infinity,
+                  ease: 'easeInOut'
+                }}
               />
               <motion.div 
                 className="timeline-content"
-                whileHover={{ x: 10 }}
-                transition={{ duration: 0.3 }}
+                whileHover={{ x: 10, transition: { duration: 0.3, ease: "easeOut" } }}
               >
                 <div className="job-header">
                   <h3>{job.position}</h3>
@@ -83,7 +93,7 @@ export default function Experience({ experience }: { experience: any[] }) {
                     <motion.span 
                       key={i} 
                       className="tech-tag"
-                      whileHover={{ y: -2, scale: 1.05 }}
+                      whileHover={{ y: -2, scale: 1.05, transition: { duration: 0.2, ease: "easeOut" } }}
                     >
                       {tech}
                     </motion.span>
