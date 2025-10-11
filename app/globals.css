@@ -136,17 +136,6 @@ body {
     color: var(--text-primary);
 }
 
-.logo-dot {
-    color: var(--primary-color);
-    font-size: 2rem;
-    line-height: 0.8;
-}
-
-.logo-subtext {
-    color: var(--text-secondary);
-    font-weight: 400;
-}
-
 .nav-menu {
     display: flex;
     list-style: none;

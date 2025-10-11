@@ -30,8 +30,6 @@ export default function Navigation() {
       <div className="nav-content">
         <div className="logo">
           <span className="logo-text">Shalin</span>
-          <span className="logo-dot">.</span>
-          <span className="logo-subtext">dev</span>
         </div>
         <ul className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
           <li><a href="#hero" className="nav-link" onClick={(e) => handleLinkClick(e, '#hero')}>Home</a></li>
