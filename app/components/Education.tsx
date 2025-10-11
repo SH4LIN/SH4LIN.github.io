@@ -11,7 +11,7 @@ export default function Education({ education }: { education: any[] }) {
         </h2>
         <div className="education-grid">
           {education.map((edu, index) => (
-            <div key={edu.id} className="education-card" data-aos="flip-left" data-aos-delay={index * 100}>
+            <div key={edu.id} className="education-card" data-aos="zoom-in" data-aos-delay={index * 100}>
               <div className="education-icon">{icons[index] || '🎓'}</div>
               <h3>{edu.degree}</h3>
               <p className="degree">{edu.field}</p>
