@@ -139,7 +139,7 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
     "dateCreated": "2024-01-01T00:00:00+00:00",
-    "dateModified": new Date().toISOString(),
+    "dateModified": "2025-10-11T00:00:00+00:00",
     "mainEntity": {
       "@type": "Person",
       "name": "Shalin Shah",
