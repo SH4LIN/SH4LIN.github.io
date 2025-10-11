@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import StructuredData from './components/StructuredData'
+import { GoogleTagManager } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://sh4lin.me'),
@@ -103,7 +104,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang='en'>
-            <head>
+            <head title='Shalin Shah - Full Stack Developer | React, WordPress, Android & Flutter'>
                 <StructuredData />
                 <link rel='preconnect' href='https://fonts.googleapis.com' />
                 <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
@@ -119,8 +120,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <meta name='apple-mobile-web-app-capable' content='yes' />
                 <meta name='apple-mobile-web-app-status-bar-style' content='default' />
                 <meta name='apple-mobile-web-app-title' content='Shalin Shah' />
+                <GoogleTagManager gtmId='GTM-TQX4K2GZ' dataLayerName='dataLayer' />
+                <title></title>
             </head>
-            <body>{children}</body>
+            <body>
+                <noscript>
+                    <iframe
+                        src='https://www.googletagmanager.com/ns.html?id=GTM-TQX4K2GZ'
+                        height='0'
+                        width='0'
+                        style={{ display: 'none', visibility: 'hidden' }}
+                    ></iframe>
+                </noscript>
+                {children}
+            </body>
         </html>
     )
 }

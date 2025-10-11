@@ -27,6 +27,7 @@
     },
     "homepage": "https://github.com/SH4LIN/SH4LIN.github.io#readme",
     "dependencies": {
+        "@next/third-parties": "^15.5.4",
         "next": "^15.5.4",
         "react": "^19.2.0",
         "react-dom": "^19.2.0"
