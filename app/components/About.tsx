@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 
 interface ProfileData {
     location: string
@@ -11,26 +12,17 @@ interface ProfileData {
 
 export default function About({ profile }: { profile: ProfileData }) {
     const statsRef = useRef<HTMLDivElement>(null)
+    const isInView = useInView(statsRef, { once: true, amount: 0.5 })
 
     useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const stats = entry.target.querySelectorAll('.stat-number')
-                    stats.forEach((stat) => {
-                        const target = parseInt((stat as HTMLElement).getAttribute('data-target') || '0')
-                        animateCounter(stat as HTMLElement, target)
-                    })
-                }
-            })
-        }, { threshold: 0.5 })
+        if (!isInView) return
 
-        if (statsRef.current) {
-            observer.observe(statsRef.current)
-        }
-
-        return () => observer.disconnect()
-    }, [])
+        const stats = statsRef.current?.querySelectorAll('.stat-number')
+        stats?.forEach((stat) => {
+            const target = parseInt((stat as HTMLElement).getAttribute('data-target') || '0')
+            animateCounter(stat as HTMLElement, target)
+        })
+    }, [isInView])
 
     const animateCounter = (element: HTMLElement, target: number) => {
         const duration = 2000
@@ -50,18 +42,54 @@ export default function About({ profile }: { profile: ProfileData }) {
         updateCounter()
     }
 
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2
+            }
+        }
+    }
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6 }
+        }
+    }
+
     return (
         <section id="about" className="about-section">
       <div className="container">
-        <h2 className="section-title" data-aos="fade-up">
+        <motion.h2 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <span className="title-number">01.</span>
           <span className="title-text">About Me</span>
           <span className="title-line"></span>
-        </h2>
+        </motion.h2>
         <div className="about-content">
-          <div className="about-text" data-aos="fade-right">
-            <div className="profile-card">
-              <div className="profile-glow"></div>
+          <div className="about-text">
+            <motion.div 
+              className="profile-card"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ y: -10 }}
+            >
+              <motion.div 
+                className="profile-glow"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+              />
               <div className="profile-info">
                 <div className="info-item">
                   <span className="info-icon">📍</span>
@@ -78,21 +106,31 @@ export default function About({ profile }: { profile: ProfileData }) {
               </div>
               <p className="about-description">
                 {profile.summary}</p>
-            </div>
-              <div className="stats-container" ref={statsRef}>
-                <div className="stat-item">
-                  <div className="stat-number" data-target="5">0</div>
-                  <div className="stat-label">Years Experience</div>
-                </div>
-                <div className="stat-item">
-                  <div className="stat-number" data-target="30">0</div>
-                  <div className="stat-label">Projects Completed</div>
-                </div>
-                <div className="stat-item">
-                  <div className="stat-number" data-target="20">0</div>
-                  <div className="stat-label">Technologies</div>
-                </div>
-              </div>
+            </motion.div>
+              <motion.div 
+                className="stats-container" 
+                ref={statsRef}
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                {[
+                  { target: 5, label: 'Years Experience' },
+                  { target: 30, label: 'Projects Completed' },
+                  { target: 20, label: 'Technologies' }
+                ].map((stat, index) => (
+                  <motion.div 
+                    key={index}
+                    className="stat-item"
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <div className="stat-number" data-target={stat.target}>0</div>
+                    <div className="stat-label">{stat.label}</div>
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
           </div>
         </div>

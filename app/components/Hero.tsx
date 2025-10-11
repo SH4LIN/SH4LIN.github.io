@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 
 interface ProfileData {
   name: string
@@ -41,45 +42,127 @@ export default function Hero({ profile }: { profile: ProfileData }) {
     return () => clearTimeout(timeout)
   }, [profile, roleIndex, charIndex, isDeleting])
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: 'easeOut' as const
+      }
+    }
+  }
+
   return (
     <section id="hero" className="hero-section">
-      <div className="hero-content">
-        <div className="hero-greeting">Hello, I'm</div>
-        <h1 className="hero-name">{profile?.name || 'Shalin Shah'}</h1>
-        <div className="typing-container">
+      <motion.div 
+        className="hero-content"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div variants={itemVariants} className="hero-greeting">
+          Hello, I'm
+        </motion.div>
+        <motion.h1 variants={itemVariants} className="hero-name">
+          {profile?.name || 'Shalin Shah'}
+        </motion.h1>
+        <motion.div variants={itemVariants} className="typing-container">
           <span className="typing-prefix">I'm a </span>
           <span className="typing-text">{currentRole}</span>
-          <span className="cursor">|</span>
-        </div>
-        <p className="hero-description">
+          <motion.span 
+            className="cursor"
+            animate={{ opacity: [1, 0, 1] }}
+            transition={{ duration: 0.7, repeat: Infinity }}
+          >
+            |
+          </motion.span>
+        </motion.div>
+        <motion.p variants={itemVariants} className="hero-description">
           Building exceptional digital experiences through code
-        </p>
-        <div className="hero-buttons">
-          <a href="#contact" className="btn btn-primary">
+        </motion.p>
+        <motion.div variants={itemVariants} className="hero-buttons">
+          <motion.a 
+            href="#contact" 
+            className="btn btn-primary"
+            whileHover={{ y: -3, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
             <span>Get In Touch</span>
-            <div className="btn-particles"></div>
-          </a>
-          <a href="#experience" className="btn btn-secondary">
+          </motion.a>
+          <motion.a 
+            href="#experience" 
+            className="btn btn-secondary"
+            whileHover={{ y: -3, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
             <span>View My Work</span>
-            <div className="btn-particles"></div>
-          </a>
-        </div>
-        <div className="scroll-indicator">
+          </motion.a>
+        </motion.div>
+        <motion.div 
+          variants={itemVariants}
+          className="scroll-indicator"
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
           <div className="mouse">
-            <div className="wheel"></div>
+            <motion.div 
+              className="wheel"
+              animate={{ 
+                y: [10, 30],
+                opacity: [1, 0]
+              }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            />
           </div>
           <div className="arrow-container">
-            <span className="arrow"></span>
-            <span className="arrow"></span>
-            <span className="arrow"></span>
+            {[0, 1, 2].map((i) => (
+              <motion.span 
+                key={i}
+                className="arrow"
+                animate={{
+                  opacity: [0.3, 1, 0.3],
+                  y: [0, 5, 0]
+                }}
+                transition={{
+                  duration: 1.5,
+                  delay: i * 0.2,
+                  repeat: Infinity
+                }}
+              />
+            ))}
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
       <div className="floating-shapes">
-        <div className="shape shape-1"></div>
-        <div className="shape shape-2"></div>
-        <div className="shape shape-3"></div>
-        <div className="shape shape-4"></div>
+        {[0, 1, 2, 3].map((i) => (
+          <motion.div 
+            key={i}
+            className={`shape shape-${i + 1}`}
+            animate={{
+              x: [0, 100, -100, 0],
+              y: [0, -100, 100, 0],
+              rotate: [0, 120, 240, 360],
+            }}
+            transition={{
+              duration: 20,
+              delay: i * 5,
+              repeat: Infinity,
+              ease: 'easeInOut' as const
+            }}
+          />
+        ))}
       </div>
     </section>
   )
