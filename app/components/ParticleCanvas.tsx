@@ -7,10 +7,14 @@ export default function ParticleCanvas() {
 
   useEffect(() => {
     const canvas = canvasRef.current
-    if (!canvas) return
+    if (!canvas) {
+      return
+    }
 
     const ctx = canvas.getContext('2d')
-    if (!ctx) return
+    if (!ctx) {
+      return
+    }
 
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
@@ -43,7 +47,9 @@ export default function ParticleCanvas() {
     let animationId: number
 
     function animate() {
-      if (!ctx || !canvas) return
+      if (!ctx || !canvas) {
+        return
+      }
 
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -51,8 +57,12 @@ export default function ParticleCanvas() {
         particle.x += particle.vx
         particle.y += particle.vy
 
-        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1
-        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1
+        if (particle.x < 0 || particle.x > canvas.width) {
+          particle.vx *= -1
+        }
+        if (particle.y < 0 || particle.y > canvas.height) {
+          particle.vy *= -1
+        }
 
         if (mouseX !== null && mouseY !== null) {
           const dx = mouseX - particle.x

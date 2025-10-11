@@ -1,4 +1,12 @@
-export default function Education({ education }: { education: any[] }) {
+interface EducationItem {
+  institution: string
+  degree: string
+  duration: string
+  cgpa?: string
+  description?: string
+}
+
+export default function Education({ education }: { education: EducationItem[] }) {
   const icons = ['🎓', '📚']
 
   return (

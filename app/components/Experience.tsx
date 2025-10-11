@@ -1,4 +1,12 @@
-export default function Experience({ experience }: { experience: any[] }) {
+interface ExperienceItem {
+  company: string
+  position: string
+  duration: string
+  description: string[]
+  technologies?: string[]
+}
+
+export default function Experience({ experience }: { experience: ExperienceItem[] }) {
   return (
     <section id="experience" className="experience-section">
       <div className="container">

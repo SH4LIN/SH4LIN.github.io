@@ -14,7 +14,9 @@ export default function Hero({ profile }: { profile: ProfileData }) {
   const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
-    if (!profile) return
+    if (!profile) {
+      return
+    }
 
     const roles = profile.roles
     const currentText = roles[roleIndex]
@@ -55,10 +57,10 @@ export default function Hero({ profile }: { profile: ProfileData }) {
   return (
     <section id="hero" className="hero-section">
       <div className="hero-content">
-        <div className="hero-greeting">Hello, I'm</div>
+        <div className="hero-greeting">Hello, I&apos;m</div>
         <h1 className="hero-name">{profile?.name || 'Shalin Shah'}</h1>
         <div className="typing-container">
-          <span className="typing-prefix">I'm a </span>
+          <span className="typing-prefix">I&apos;m a </span>
           <span className="typing-text">{currentRole}</span>
           <span className="cursor">|</span>
         </div>

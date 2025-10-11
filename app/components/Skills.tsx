@@ -31,7 +31,22 @@ const skillLogos: { [key: string]: { logo: string; color: string } } = {
   Databases: { logo: 'mysql', color: '4479A1' },
 }
 
-export default function Skills({ skills }: { skills: any }) {
+interface Skill {
+  name: string
+  level?: string
+  description?: string
+}
+
+interface Category {
+  name: string
+  skills: Skill[]
+}
+
+interface SkillsData {
+  categories: Category[]
+}
+
+export default function Skills({ skills }: { skills: SkillsData }) {
   const [selectedCategory, setSelectedCategory] = useState(0)
 
   useEffect(() => {
@@ -52,12 +67,16 @@ export default function Skills({ skills }: { skills: any }) {
     )
 
     const section = document.querySelector('.skills-container')
-    if (section) observer.observe(section)
+    if (section) {
+      observer.observe(section)
+    }
 
     return () => observer.disconnect()
   }, [selectedCategory])
 
-  if (!skills) return null
+  if (!skills) {
+    return null
+  }
 
   return (
     <section id="skills" className="skills-section">
@@ -71,7 +90,7 @@ export default function Skills({ skills }: { skills: any }) {
         <div className="skills-container">
           {/* Category Tabs */}
           <div className="skills-tabs" data-aos="fade-up">
-            {skills.categories.map((category: any, index: number) => (
+            {skills.categories.map((category: Category, index: number) => (
               <button
                 key={index}
                 className={`skill-tab ${selectedCategory === index ? 'active' : ''}`}
@@ -85,13 +104,13 @@ export default function Skills({ skills }: { skills: any }) {
 
           {/* Skills Display */}
           <div className="skills-display">
-            {skills.categories.map((category: any, catIndex: number) => (
+            {skills.categories.map((category: Category, catIndex: number) => (
               <div
                 key={catIndex}
                 className={`skills-content ${selectedCategory === catIndex ? 'active' : ''}`}
               >
                 <div className="skills-cards">
-                  {category.skills.map((skill: any, skillIndex: number) => {
+                  {category.skills.map((skill: Skill, skillIndex: number) => {
                     const skillInfo = skillLogos[skill.name] || { logo: 'code', color: '6366f1' }
                     return (
                       <div key={skillIndex} className="skill-card">

@@ -23,7 +23,9 @@ export default function Navigation() {
         return false
       })
 
-      if (current) setActiveSection(current)
+      if (current) {
+        setActiveSection(current)
+      }
     }
 
     window.addEventListener('scroll', handleScroll)

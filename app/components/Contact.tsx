@@ -1,4 +1,4 @@
-export default function Contact({ profile }: { profile: any }) {
+export default function Contact({ profile }: { profile: { email: string; phone: string; location: string; github: string; linkedin: string } }) {
   return (
     <section id="contact" className="contact-section">
       <div className="container">
@@ -9,7 +9,7 @@ export default function Contact({ profile }: { profile: any }) {
         </h2>
         <div className="contact-content" data-aos="fade-up">
           <p className="contact-intro">
-            I'm currently open to new opportunities and interesting projects. Whether you have a
+            I&apos;m currently open to new opportunities and interesting projects. Whether you have a
             question, want to collaborate, or just want to say hi, feel free to reach out!
           </p>
           <div className="contact-info">

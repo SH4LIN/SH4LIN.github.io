@@ -1,4 +1,10 @@
-export default function Footer({ profile }: { profile: any }) {
+interface ProfileData {
+  github?: string
+  linkedin?: string
+  twitter?: string
+}
+
+export default function Footer({ profile }: { profile: ProfileData }) {
   return (
     <footer className="footer">
       <div className="footer-content">
