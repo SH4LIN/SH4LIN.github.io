@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "degree": "Bachelor's Degree",
+    "field": "Information Technology",
+    "institution": "L.D College of Engineering",
+    "location": "Ahmedabad, Gujarat",
+    "startYear": 2020,
+    "endYear": 2023,
+    "description": "Focused on software engineering, mobile application development, and modern web technologies."
+  },
+  {
+    "id": 2,
+    "degree": "Diploma",
+    "field": "Computer Engineering",
+    "institution": "Government Polytechnic, Ahmedabad",
+    "location": "Ahmedabad, Gujarat",
+    "startYear": 2017,
+    "endYear": 2020,
+    "description": "Comprehensive study of computer fundamentals, programming languages, and software development."
+  }
+]

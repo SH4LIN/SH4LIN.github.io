@@ -6,15 +6,15 @@
 }
 
 :root {
-    --primary-color: #00ff88;
-    --secondary-color: #0066ff;
-    --accent-color: #ff0055;
-    --dark-bg: #0a0a0f;
-    --darker-bg: #050508;
-    --card-bg: rgba(18, 18, 27, 0.8);
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0b0;
-    --glow-color: rgba(0, 255, 136, 0.5);
+    --primary-color: #6366f1;
+    --secondary-color: #8b5cf6;
+    --accent-color: #ec4899;
+    --dark-bg: #0f172a;
+    --darker-bg: #020617;
+    --card-bg: rgba(30, 41, 59, 0.8);
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --glow-color: rgba(99, 102, 241, 0.4);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -56,14 +56,14 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(10, 10, 15, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(99, 102, 241, 0.1);
     transition: var(--transition);
 }
 
 .nav-container.scrolled {
-    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.1);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
 }
 
 .nav-content {
@@ -76,16 +76,28 @@ body {
 }
 
 .logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 900;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--text-primary);
-    text-shadow: 0 0 20px var(--glow-color);
-    animation: pulse 2s infinite;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
 }
 
-.logo-accent {
+.logo-text {
+    color: var(--text-primary);
+}
+
+.logo-dot {
     color: var(--primary-color);
+    font-size: 2rem;
+    line-height: 0.8;
+}
+
+.logo-subtext {
+    color: var(--text-secondary);
+    font-weight: 400;
 }
 
 .nav-menu {
@@ -152,49 +164,25 @@ body {
     animation: fadeInUp 1s ease;
 }
 
-.glitch-wrapper {
-    margin-bottom: 2rem;
+.hero-greeting {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.8s ease;
 }
 
-.glitch {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(3rem, 10vw, 7rem);
-    font-weight: 900;
+.hero-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 800;
     color: var(--text-primary);
-    position: relative;
-    text-shadow: 
-        0 0 10px var(--primary-color),
-        0 0 20px var(--primary-color),
-        0 0 30px var(--primary-color),
-        0 0 40px var(--primary-color);
-    animation: glitch 3s infinite;
-}
-
-@keyframes glitch {
-    0%, 100% {
-        text-shadow: 
-            0 0 10px var(--primary-color),
-            0 0 20px var(--primary-color),
-            0 0 30px var(--primary-color);
-    }
-    20% {
-        text-shadow: 
-            3px 0 10px var(--accent-color),
-            -3px 0 20px var(--secondary-color),
-            0 0 30px var(--primary-color);
-    }
-    40% {
-        text-shadow: 
-            -3px 0 10px var(--accent-color),
-            3px 0 20px var(--secondary-color),
-            0 0 30px var(--primary-color);
-    }
-    60% {
-        text-shadow: 
-            0 0 10px var(--primary-color),
-            0 0 20px var(--primary-color),
-            0 0 30px var(--primary-color);
-    }
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--text-primary), var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeInUp 1s ease;
 }
 
 .typing-container {
@@ -203,13 +191,28 @@ body {
     justify-content: center;
     gap: 5px;
     min-height: 60px;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.typing-prefix {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--text-secondary);
+    font-weight: 400;
 }
 
 .typing-text {
     font-size: clamp(1.2rem, 3vw, 1.8rem);
     color: var(--primary-color);
     font-weight: 600;
+}
+
+.hero-description {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+    animation: fadeInUp 1.2s ease;
 }
 
 .cursor {
@@ -257,7 +260,7 @@ body {
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(0, 255, 136, 0.5);
+    box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
 }
 
 .btn-secondary {
@@ -413,7 +416,8 @@ body {
     gap: 1rem;
     margin-bottom: 4rem;
     font-size: 2.5rem;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
 }
 
 .title-number {
@@ -454,7 +458,7 @@ body {
 
 .profile-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(0, 255, 136, 0.2);
+    box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
     border-color: var(--primary-color);
 }
 
@@ -464,7 +468,7 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
     animation: rotate 10s linear infinite;
 }
 
@@ -506,22 +510,22 @@ body {
 .stat-item {
     text-align: center;
     padding: 1.5rem;
-    background: rgba(0, 255, 136, 0.05);
+    background: rgba(99, 102, 241, 0.05);
     border-radius: 15px;
-    border: 1px solid rgba(0, 255, 136, 0.2);
+    border: 1px solid rgba(99, 102, 241, 0.2);
     transition: var(--transition);
 }
 
 .stat-item:hover {
     transform: scale(1.05);
-    background: rgba(0, 255, 136, 0.1);
+    background: rgba(99, 102, 241, 0.1);
 }
 
 .stat-number {
     font-size: 3rem;
     font-weight: 900;
     color: var(--primary-color);
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .stat-label {
@@ -593,7 +597,7 @@ body {
 .timeline-content:hover {
     transform: translateX(10px);
     border-color: var(--primary-color);
-    box-shadow: 0 10px 40px rgba(0, 255, 136, 0.2);
+    box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
 }
 
 .job-header h3 {
@@ -645,16 +649,16 @@ body {
 
 .tech-tag {
     padding: 0.4rem 1rem;
-    background: rgba(0, 255, 136, 0.1);
+    background: rgba(99, 102, 241, 0.1);
     color: var(--primary-color);
-    border: 1px solid rgba(0, 255, 136, 0.3);
+    border: 1px solid rgba(99, 102, 241, 0.3);
     border-radius: 20px;
     font-size: 0.9rem;
     transition: var(--transition);
 }
 
 .tech-tag:hover {
-    background: rgba(0, 255, 136, 0.2);
+    background: rgba(99, 102, 241, 0.2);
     transform: translateY(-2px);
 }
 
@@ -683,7 +687,7 @@ body {
 
 .skill-category:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(0, 255, 136, 0.2);
+    box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
     border-color: var(--primary-color);
 }
 
@@ -691,7 +695,7 @@ body {
     font-size: 1.8rem;
     margin-bottom: 2rem;
     color: var(--primary-color);
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .skills-list {
@@ -778,7 +782,7 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
     transition: left 0.5s ease;
 }
 
@@ -789,7 +793,7 @@ body {
 .education-card:hover {
     transform: rotateY(5deg) translateY(-10px);
     border-color: var(--primary-color);
-    box-shadow: 0 20px 60px rgba(0, 255, 136, 0.3);
+    box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
 }
 
 .education-icon {
@@ -803,7 +807,7 @@ body {
     font-size: 1.8rem;
     color: var(--primary-color);
     margin-bottom: 1rem;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .degree {
@@ -826,6 +830,13 @@ body {
 .duration {
     color: var(--primary-color);
     font-weight: 600;
+}
+
+.education-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-top: 1rem;
+    line-height: 1.6;
 }
 
 /* ===== CONTACT SECTION ===== */
@@ -873,7 +884,7 @@ body {
 .contact-item:hover {
     transform: translateX(10px);
     border-color: var(--primary-color);
-    background: rgba(0, 255, 136, 0.1);
+    background: rgba(99, 102, 241, 0.1);
 }
 
 .contact-icon {

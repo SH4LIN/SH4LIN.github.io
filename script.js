@@ -1,3 +1,166 @@
+// ===== DATA LOADER =====
+class DataLoader {
+    constructor() {
+        this.profileData = null;
+        this.experienceData = null;
+        this.skillsData = null;
+        this.educationData = null;
+    }
+
+    async loadAllData() {
+        try {
+            const [profile, experience, skills, education] = await Promise.all([
+                fetch('./data/profile.json').then(r => r.json()),
+                fetch('./data/experience.json').then(r => r.json()),
+                fetch('./data/skills.json').then(r => r.json()),
+                fetch('./data/education.json').then(r => r.json())
+            ]);
+
+            this.profileData = profile;
+            this.experienceData = experience;
+            this.skillsData = skills;
+            this.educationData = education;
+
+            this.renderProfile();
+            this.renderExperience();
+            this.renderSkills();
+            this.renderEducation();
+            this.renderContact();
+        } catch (error) {
+            console.error('Error loading data:', error);
+        }
+    }
+
+    renderProfile() {
+        const { name, location, email, phone, summary } = this.profileData;
+        
+        // Update hero name
+        const heroName = document.getElementById('heroName');
+        if (heroName) heroName.textContent = name;
+
+        // Update about section
+        const profileInfo = document.getElementById('profileInfo');
+        if (profileInfo) {
+            profileInfo.innerHTML = `
+                <div class="info-item">
+                    <span class="info-icon">📍</span>
+                    <span>${location}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">📧</span>
+                    <span>${email}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">📱</span>
+                    <span>${phone}</span>
+                </div>
+            `;
+        }
+
+        const aboutDescription = document.getElementById('aboutDescription');
+        if (aboutDescription) {
+            aboutDescription.textContent = summary;
+        }
+    }
+
+    renderExperience() {
+        const timeline = document.getElementById('experienceTimeline');
+        if (!timeline) return;
+
+        timeline.innerHTML = this.experienceData.map(job => `
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="job-header">
+                        <h3>${job.position}</h3>
+                        <span class="company">${job.company}</span>
+                    </div>
+                    <div class="job-meta">
+                        <span class="location">📍 ${job.location}</span>
+                        <span class="date">🗓️ ${job.startDate} - ${job.endDate}</span>
+                    </div>
+                    <ul class="job-description">
+                        ${job.description.map(desc => `<li>${desc}</li>`).join('')}
+                    </ul>
+                    <div class="job-tech">
+                        ${job.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    renderSkills() {
+        const skillsGrid = document.getElementById('skillsGrid');
+        if (!skillsGrid) return;
+
+        skillsGrid.innerHTML = this.skillsData.categories.map((category, index) => `
+            <div class="skill-category" data-aos="zoom-in" data-aos-delay="${index * 100}">
+                <h3>${category.name}</h3>
+                <div class="skills-list">
+                    ${category.skills.map(skill => `
+                        <div class="skill-item">
+                            <span class="skill-name">${skill.name}</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="${skill.level}"></div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    renderEducation() {
+        const educationGrid = document.getElementById('educationGrid');
+        if (!educationGrid) return;
+
+        const icons = ['🎓', '📚'];
+        
+        educationGrid.innerHTML = this.educationData.map((edu, index) => `
+            <div class="education-card" data-aos="flip-left" data-aos-delay="${index * 100}">
+                <div class="education-icon">${icons[index] || '🎓'}</div>
+                <h3>${edu.degree}</h3>
+                <p class="degree">${edu.field}</p>
+                <p class="institution">${edu.institution}</p>
+                <p class="location">${edu.location}</p>
+                <p class="duration">${edu.startYear} - ${edu.endYear}</p>
+                <p class="education-description">${edu.description}</p>
+            </div>
+        `).join('');
+    }
+
+    renderContact() {
+        const { email, phone, location, linkedin, github } = this.profileData;
+        const contactInfo = document.getElementById('contactInfo');
+        
+        if (contactInfo) {
+            contactInfo.innerHTML = `
+                <a href="mailto:${email}" class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <span>${email}</span>
+                </a>
+                <a href="tel:${phone.replace(/\s/g, '')}" class="contact-item">
+                    <span class="contact-icon">📱</span>
+                    <span>${phone}</span>
+                </a>
+                <a href="${linkedin}" target="_blank" rel="noopener noreferrer" class="contact-item">
+                    <span class="contact-icon">💼</span>
+                    <span>LinkedIn Profile</span>
+                </a>
+                <a href="${github}" target="_blank" rel="noopener noreferrer" class="contact-item">
+                    <span class="contact-icon">💻</span>
+                    <span>GitHub Profile</span>
+                </a>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <span>${location}</span>
+                </div>
+            `;
+        }
+    }
+}
+
 // ===== PARTICLE ANIMATION =====
 class ParticleSystem {
     constructor() {
@@ -410,20 +573,18 @@ class PageLoader {
 }
 
 // ===== INITIALIZE ALL =====
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    // Load data from JSON files
+    const dataLoader = new DataLoader();
+    await dataLoader.loadAllData();
+
     // Initialize particle system
     new ParticleSystem();
 
-    // Initialize typing animation
+    // Initialize typing animation with roles from profile data
     const typingElement = document.querySelector('.typing-text');
-    if (typingElement) {
-        new TypeWriter(typingElement, [
-            'Android Developer',
-            'WordPress Developer',
-            'Flutter Developer',
-            'Full Stack Developer',
-            'Problem Solver'
-        ]);
+    if (typingElement && dataLoader.profileData) {
+        new TypeWriter(typingElement, dataLoader.profileData.roles);
     }
 
     // Initialize all other features

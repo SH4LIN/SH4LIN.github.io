@@ -1,0 +1,44 @@
+{
+  "categories": [
+    {
+      "name": "Frontend Development",
+      "skills": [
+        { "name": "React", "level": 90 },
+        { "name": "JavaScript", "level": 88 },
+        { "name": "HTML5", "level": 95 },
+        { "name": "CSS3", "level": 92 },
+        { "name": "TypeScript", "level": 80 }
+      ]
+    },
+    {
+      "name": "Mobile Development",
+      "skills": [
+        { "name": "Android", "level": 95 },
+        { "name": "Kotlin", "level": 92 },
+        { "name": "Flutter", "level": 88 },
+        { "name": "Dart", "level": 85 },
+        { "name": "Java", "level": 82 }
+      ]
+    },
+    {
+      "name": "Backend & CMS",
+      "skills": [
+        { "name": "WordPress", "level": 92 },
+        { "name": "PHP", "level": 85 },
+        { "name": "Firebase", "level": 88 },
+        { "name": "Spring Boot", "level": 78 },
+        { "name": "Node.js", "level": 75 }
+      ]
+    },
+    {
+      "name": "Tools & Technologies",
+      "skills": [
+        { "name": "Git", "level": 92 },
+        { "name": "GitHub", "level": 90 },
+        { "name": "Jira", "level": 88 },
+        { "name": "REST APIs", "level": 90 },
+        { "name": "Databases", "level": 85 }
+      ]
+    }
+  ]
+}
