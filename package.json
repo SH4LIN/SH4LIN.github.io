@@ -1,57 +1,57 @@
 {
-  "name": "sh4lin.me",
-  "version": "1.0.0",
-  "description": "A modern, professional portfolio website showcasing my experience as a Full Stack Developer specializing in React, WordPress, and Android development.",
-  "main": "script.js",
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "export": "next build && next export",
-    "prepare": "husky",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
-    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,md}\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SH4LIN/SH4LIN.github.io.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/SH4LIN/SH4LIN.github.io/issues"
-  },
-  "homepage": "https://github.com/SH4LIN/SH4LIN.github.io#readme",
-  "dependencies": {
-    "next": "^15.5.4",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
-  },
-  "devDependencies": {
-    "@types/node": "24.7.1",
-    "@types/react": "19.2.2",
-    "@types/react-dom": "^19.2.1",
-    "@typescript-eslint/eslint-plugin": "^8.46.0",
-    "@typescript-eslint/parser": "^8.46.0",
-    "eslint": "^9.37.0",
-    "eslint-config-next": "^15.5.4",
-    "eslint-config-prettier": "^10.1.8",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.2.4",
-    "prettier": "^3.6.2",
-    "typescript": "5.9.3"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{json,css,md}": [
-      "prettier --write"
-    ]
-  }
+    "name": "sh4lin.me",
+    "version": "1.0.0",
+    "description": "A modern, professional portfolio website showcasing my experience as a Full Stack Developer specializing in React, WordPress, and Android development.",
+    "main": "script.js",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "export": "next build && next export",
+        "prepare": "husky",
+        "lint": "next lint",
+        "lint:fix": "next lint --fix",
+        "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
+        "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,md}\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SH4LIN/SH4LIN.github.io.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/SH4LIN/SH4LIN.github.io/issues"
+    },
+    "homepage": "https://github.com/SH4LIN/SH4LIN.github.io#readme",
+    "dependencies": {
+        "next": "^15.5.4",
+        "react": "^19.2.0",
+        "react-dom": "^19.2.0"
+    },
+    "devDependencies": {
+        "@types/node": "24.7.1",
+        "@types/react": "19.2.2",
+        "@types/react-dom": "^19.2.1",
+        "@typescript-eslint/eslint-plugin": "^8.46.0",
+        "@typescript-eslint/parser": "^8.46.0",
+        "eslint": "^9.37.0",
+        "eslint-config-next": "^15.5.4",
+        "eslint-config-prettier": "^10.1.8",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.2.4",
+        "prettier": "^3.6.2",
+        "typescript": "5.9.3"
+    },
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx}": [
+            "eslint --fix",
+            "prettier --write"
+        ],
+        "*.{json,css,md}": [
+            "prettier --write"
+        ]
+    }
 }

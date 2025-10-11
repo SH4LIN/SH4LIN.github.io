@@ -3,6 +3,7 @@
 A modern, professional portfolio website built with Next.js, showcasing my experience as a Full Stack Developer specializing in React, WordPress, and Android development.
 
 ## 🌐 Live Website
+
 Visit: [https://sh4lin.me](https://sh4lin.me)
 
 ## ✨ Features
@@ -82,6 +83,7 @@ This project uses an automated deployment workflow:
 ### GitHub Pages Configuration
 
 Configure your repository to serve from the `main-build` branch:
+
 1. Go to repository Settings → Pages
 2. Set Source to "Deploy from a branch"
 3. Select branch: `main-build`
@@ -93,6 +95,7 @@ The custom domain `sh4lin.me` is configured via the CNAME file.
 ## 💻 Development
 
 ### Prerequisites
+
 - Node.js 20.x or higher
 - npm or yarn
 
@@ -120,6 +123,7 @@ npm run build
 ## 📝 Current Position
 
 **React & WordPress Developer at TeamUpdraft** (September 2024 - Present)
+
 - Working on Burst Statistics - a privacy-friendly analytics tool
 - Maintaining, adding features, and fixing bugs
 - Focus on privacy-first analytics solutions
@@ -134,6 +138,7 @@ To update the website content, simply edit the JSON files in `public/data/`:
 - **education.json**: Modify educational background
 
 After editing:
+
 ```bash
 git add public/data/
 git commit -m "Update content"

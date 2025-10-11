@@ -15,19 +15,19 @@ import skillsData from '../public/data/skills.json'
 import educationData from '../public/data/education.json'
 
 export default function Home() {
-  return (
-    <ClientWrapper>
-      <ParticleCanvas />
-      <Navigation />
-      <main>
-        <Hero profile={profileData} />
-        <About profile={profileData} />
-        <Experience experience={experienceData} />
-        <Skills skills={skillsData} />
-        <Education education={educationData} />
-        <Contact profile={profileData} />
-      </main>
-      <Footer profile={profileData} />
-    </ClientWrapper>
-  )
+    return (
+        <ClientWrapper>
+            <ParticleCanvas />
+            <Navigation />
+            <main>
+                <Hero profile={profileData} />
+                <About profile={profileData} />
+                <Experience experience={experienceData} />
+                <Skills skills={skillsData} />
+                <Education education={educationData} />
+                <Contact profile={profileData} />
+            </main>
+            <Footer profile={profileData} />
+        </ClientWrapper>
+    )
 }

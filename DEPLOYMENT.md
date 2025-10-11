@@ -17,9 +17,9 @@ After the GitHub Actions workflow has run successfully and created the `main-bui
 1. Go to your repository **Settings**
 2. Scroll down to the **"Pages"** section in the left sidebar
 3. Under **"Build and deployment"**:
-   - Source: Select **"Deploy from a branch"**
-   - Branch: Select **`main-build`**
-   - Folder: Select **`/ (root)`**
+    - Source: Select **"Deploy from a branch"**
+    - Branch: Select **`main-build`**
+    - Folder: Select **`/ (root)`**
 4. Click **Save**
 
 ### Step 3: Verify Deployment
@@ -65,11 +65,11 @@ Your site is live! 🎉
 
 1. Edit JSON files in `public/data/`
 2. Commit and push:
-   ```bash
-   git add public/data/
-   git commit -m "Update content"
-   git push origin main
-   ```
+    ```bash
+    git add public/data/
+    git commit -m "Update content"
+    git push origin main
+    ```
 3. Workflow runs automatically
 4. Site updates in 2-3 minutes
 
@@ -78,11 +78,11 @@ Your site is live! 🎉
 1. Edit files in `app/` directory
 2. Test locally: `npm run dev`
 3. Commit and push:
-   ```bash
-   git add app/
-   git commit -m "Update components"
-   git push origin main
-   ```
+    ```bash
+    git add app/
+    git commit -m "Update components"
+    git push origin main
+    ```
 4. Workflow builds and deploys automatically
 
 ### Update Styles
@@ -90,11 +90,11 @@ Your site is live! 🎉
 1. Edit `app/globals.css`
 2. Test locally: `npm run dev`
 3. Commit and push:
-   ```bash
-   git add app/globals.css
-   git commit -m "Update styles"
-   git push origin main
-   ```
+    ```bash
+    git add app/globals.css
+    git commit -m "Update styles"
+    git push origin main
+    ```
 4. Workflow deploys changes automatically
 
 ## 🐛 Troubleshooting
@@ -105,9 +105,9 @@ Your site is live! 🎉
 2. Click on the failed workflow
 3. Check the error logs
 4. Common issues:
-   - **Build errors**: Check TypeScript/React syntax
-   - **Dependencies**: Run `npm install` locally to verify
-   - **Missing files**: Ensure all files are committed
+    - **Build errors**: Check TypeScript/React syntax
+    - **Dependencies**: Run `npm install` locally to verify
+    - **Missing files**: Ensure all files are committed
 
 ### Site Not Updating?
 
@@ -185,6 +185,7 @@ npx serve out
 Once configured, your site will automatically update whenever you push to `main`. No manual deployment needed!
 
 **Current Setup:**
+
 - ✅ Next.js 15 with TypeScript
 - ✅ Automated GitHub Actions workflow
 - ✅ Static site generation
