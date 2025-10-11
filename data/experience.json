@@ -26,9 +26,9 @@
     "current": false,
     "description": [
       "Completed comprehensive training in WordPress development, encompassing plugin and theme development, followed by advanced studies in Gutenberg block development",
-      "Led migration project from Umbraco CMS to WordPress, implementing WPML for multilingual support and ACF plugin for enhanced functionality",
-      "Optimized site SEO using Yoast SEO plugin and developed custom multilingual HTML sitemap aligned with client requirements",
-      "Gained solid foundation in WordPress development and proficiency in managing complex migration projects efficiently"
+      "Led a migration project from Umbraco CMS to WordPress, implementing WPML for multilingual support and ACF plugin for enhanced functionality",
+      "Optimized site SEO using Yoast SEO plugin and developed a custom multilingual HTML sitemap aligned with client requirements",
+      "Gained a solid foundation in WordPress development and proficiency in managing complex migration projects efficiently"
     ],
     "technologies": ["WordPress", "WPML", "ACF", "Yoast SEO", "Gutenberg", "PHP", "JavaScript"]
   },
@@ -42,9 +42,9 @@
     "current": false,
     "description": [
       "Enhanced 'Smart Brain' game by adding 20-30 engaging puzzle levels, demonstrating proficiency in Kotlin without gaming engines",
-      "Led end-to-end development of encryption chat system and social media application for client",
-      "Architected foundational structure for chat system, laying groundwork for future enhancements",
-      "Demonstrated adaptability as Android and Flutter developer, handling diverse and challenging projects"
+      "Led end-to-end development of an encryption chat system and social media application for a client",
+      "Architected the foundational structure for the chat system, laying the groundwork for future enhancements",
+      "Demonstrated adaptability as an Android and Flutter developer, handling diverse and challenging projects"
     ],
     "technologies": ["Kotlin", "Flutter", "Android", "Encryption", "Chat Systems", "Dart"]
   },
@@ -58,9 +58,9 @@
     "current": false,
     "description": [
       "Managed existing mobile application using Kotlin with significant UI improvements for enhanced user experience",
-      "Spearheaded development of new application versions, leading to complete UI overhaul",
-      "Successfully developed hybrid mobile application from scratch using latest technologies and best practices",
-      "Played key role in migration from Kotlin to Flutter, showcasing expertise in both native and cross-platform development"
+      "Spearheaded development of new application versions, leading to a complete UI overhaul",
+      "Successfully developed a hybrid mobile application from scratch using the latest technologies and best practices",
+      "Played a key role in migration from Kotlin to Flutter, showcasing expertise in both native and cross-platform development"
     ],
     "technologies": ["Kotlin", "Flutter", "Android", "UI/UX", "Migration"]
   },
@@ -73,10 +73,10 @@
     "endDate": "November 2020",
     "current": false,
     "description": [
-      "Redesigned mobile application UI, delivering modern and user-friendly interface",
+      "Redesigned mobile application UI, delivering a modern and user-friendly interface",
       "Developed dynamic user interfaces adapting to varying API responses for personalized experiences",
       "Implemented robust error handling, data synchronization, and performance optimization",
-      "Showcased commitment to continuous learning, staying current with latest Android development trends"
+      "Showcased commitment to continuous learning, staying current with the latest Android development trends"
     ],
     "technologies": ["Android", "Kotlin", "UI/UX", "API Integration", "Performance"]
   }
