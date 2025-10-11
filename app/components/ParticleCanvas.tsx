@@ -24,7 +24,7 @@ export default function ParticleCanvas() {
       color: string
     }> = []
 
-    const particleCount = window.innerWidth < 768 ? 50 : 100
+    const particleCount = window.innerWidth < 768 ? 30 : 60
     
     for (let i = 0; i < particleCount; i++) {
       particles.push({
@@ -40,6 +40,7 @@ export default function ParticleCanvas() {
     let mouseX: number | null = null
     let mouseY: number | null = null
     const mouseRadius = 150
+    let animationId: number
 
     function animate() {
       if (!ctx || !canvas) return
@@ -75,10 +76,10 @@ export default function ParticleCanvas() {
           const dy = particles[j].y - particle.y
           const distance = Math.sqrt(dx * dx + dy * dy)
 
-          if (distance < 100) {
+          if (distance < 80) {
             ctx.beginPath()
-            ctx.strokeStyle = `rgba(99, 102, 241, ${0.2 * (1 - distance / 100)})`
-            ctx.lineWidth = 1
+            ctx.strokeStyle = `rgba(99, 102, 241, ${0.15 * (1 - distance / 80)})`
+            ctx.lineWidth = 0.5
             ctx.moveTo(particle.x, particle.y)
             ctx.lineTo(particles[j].x, particles[j].y)
             ctx.stroke()
@@ -86,7 +87,7 @@ export default function ParticleCanvas() {
         }
       })
 
-      requestAnimationFrame(animate)
+      animationId = requestAnimationFrame(animate)
     }
 
     animate()
@@ -106,14 +107,25 @@ export default function ParticleCanvas() {
       mouseY = null
     }
 
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        cancelAnimationFrame(animationId)
+      } else {
+        animate()
+      }
+    }
+
     window.addEventListener('resize', handleResize)
     window.addEventListener('mousemove', handleMouseMove)
     window.addEventListener('mouseout', handleMouseOut)
+    document.addEventListener('visibilitychange', handleVisibilityChange)
 
     return () => {
+      cancelAnimationFrame(animationId)
       window.removeEventListener('resize', handleResize)
       window.removeEventListener('mousemove', handleMouseMove)
       window.removeEventListener('mouseout', handleMouseOut)
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
     }
   }, [])
 
