@@ -1,0 +1,212 @@
+/* ===== SKILLS SECTION ===== */
+.skills-section {
+    min-height: 100vh;
+    padding: 8rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.skills-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Category Tabs */
+.skills-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.skill-tab {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2rem;
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-tab::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.skill-tab:hover::before {
+    opacity: 0.1;
+}
+
+.skill-tab.active {
+    color: white;
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+}
+
+.tab-icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.skill-tab:hover .tab-icon,
+.skill-tab.active .tab-icon {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.tab-name {
+    white-space: nowrap;
+}
+
+/* Skills Display */
+.skills-display {
+    position: relative;
+    min-height: 400px;
+}
+
+.skills-content {
+    display: none;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.skills-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Skills Cards Grid */
+.skills-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+    justify-items: center;
+    max-width: 100%;
+}
+
+/* Individual Skill Card */
+.skill-card {
+    perspective: 1000px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+    width: 100%;
+    max-width: 180px;
+}
+
+.skill-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skill-card-inner {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    transition: transform 0.4s ease;
+}
+
+.skill-card:hover .skill-card-inner {
+    transform: translateY(-8px) scale(1.03);
+}
+
+.skill-card-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(99, 102, 241, 0.2);
+    border-radius: 20px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.skill-card-front::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.skill-card:hover .skill-card-front::before {
+    transform: scaleX(1);
+}
+
+.skill-card:hover .skill-card-front {
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 40px rgba(99, 102, 241, 0.3);
+}
+
+.skill-icon-large {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.skill-icon-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(99, 102, 241, 0.3));
+    transition: filter 0.3s ease;
+}
+
+.skill-card:hover .skill-icon-large {
+    transform: scale(1.15) translateY(-3px);
+}
+
+.skill-card:hover .skill-icon-large img {
+    filter: drop-shadow(0 8px 16px rgba(99, 102, 241, 0.5));
+}
+
+.skill-name-large {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.3;
+}
