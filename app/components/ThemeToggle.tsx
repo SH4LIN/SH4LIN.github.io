@@ -18,45 +18,30 @@ export default function ThemeToggle() {
   }, [])
 
   const toggleTheme = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const button = e.currentTarget
-    const rect = button.getBoundingClientRect()
-    const x = rect.left + rect.width / 2
-    const y = rect.top + rect.height / 2
-
     const newTheme = theme === 'dark' ? 'light' : 'dark'
 
-    // Create expanding circle overlay
-    const overlay = document.createElement('div')
-    overlay.className = 'theme-transition-overlay'
-    overlay.setAttribute('data-theme-transition', newTheme)
-    overlay.style.left = `${x}px`
-    overlay.style.top = `${y}px`
-    document.body.appendChild(overlay)
-
-    // Calculate the diagonal distance to cover entire screen
-    const maxDistance = Math.hypot(
-      Math.max(x, window.innerWidth - x),
-      Math.max(y, window.innerHeight - y)
-    )
-
-    overlay.style.setProperty('--max-size', `${maxDistance * 2}px`)
-
-    // Change theme immediately and trigger animation
-    requestAnimationFrame(() => {
-      setTheme(newTheme)
-      document.documentElement.setAttribute('data-theme', newTheme)
-      localStorage.setItem('theme', newTheme)
-
-      // Start animation after theme is set
-      requestAnimationFrame(() => {
-        overlay.classList.add('active')
+    // Check if View Transitions API is supported
+    if ('startViewTransition' in document) {
+      // Use View Transitions API for smooth animation
+      ;(document as any).startViewTransition(() => {
+        setTheme(newTheme)
+        document.documentElement.setAttribute('data-theme', newTheme)
+        localStorage.setItem('theme', newTheme)
       })
-    })
-
-    // Remove overlay after animation
-    setTimeout(() => {
-      overlay.remove()
-    }, 1000)
+    } else {
+      // Fallback: simple fade transition
+      document.documentElement.classList.add('theme-transitioning')
+      
+      setTimeout(() => {
+        setTheme(newTheme)
+        document.documentElement.setAttribute('data-theme', newTheme)
+        localStorage.setItem('theme', newTheme)
+        
+        setTimeout(() => {
+          document.documentElement.classList.remove('theme-transitioning')
+        }, 300)
+      }, 150)
+    }
   }
 
   // Don't render until mounted to avoid hydration mismatch

@@ -80,33 +80,6 @@
     gap: 1rem;
 }
 
-/* Theme Transition Overlay */
-.theme-transition-overlay {
-    position: fixed;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-                height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Overlay shows the NEW theme colors */
-.theme-transition-overlay[data-theme-transition='dark'] {
-    background: radial-gradient(circle, #0f172a 0%, #020617 100%);
-}
-
-.theme-transition-overlay[data-theme-transition='light'] {
-    background: radial-gradient(circle, #ffffff 0%, #f8fafc 100%);
-}
-
-.theme-transition-overlay.active {
-    width: var(--max-size);
-    height: var(--max-size);
-}
-
 /* Light Theme Specific Adjustments */
 [data-theme='light'] {
     color-scheme: light;
@@ -159,6 +132,56 @@
 [data-theme='light'] .footer {
     background: var(--darker-bg);
     border-top: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+/* View Transitions API Animations */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(root) {
+    animation-name: fade-out;
+}
+
+::view-transition-new(root) {
+    animation-name: fade-in;
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Fallback for browsers without View Transitions API */
+.theme-transitioning {
+    animation: theme-fade 0.3s ease-in-out;
+}
+
+@keyframes theme-fade {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 /* Smooth theme transitions for all elements */
