@@ -206,6 +206,7 @@ body {
     position: relative;
     overflow: hidden;
     z-index: 1;
+    padding-top: 80px;
 }
 
 .hero-content {
@@ -1476,6 +1477,14 @@ body {
         font-size: clamp(2rem, 10vw, 3rem);
     }
 
+    .hero-section {
+        padding-top: 100px;
+    }
+
+    .hero-content {
+        padding: 0 1rem;
+    }
+
     .typing-text,
     .typing-prefix {
         font-size: 1rem;
@@ -1550,6 +1559,10 @@ body {
 @media (max-width: 400px) {
     .hero-name {
         font-size: 2rem;
+    }
+
+    .hero-section {
+        padding-top: 100px;
     }
 
     .section-title {
