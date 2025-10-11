@@ -1,0 +1,26 @@
+{
+  "name": "Shalin Shah - Full Stack Developer",
+  "short_name": "Shalin Shah",
+  "description": "Professional portfolio of Shalin Shah, Full Stack Developer specializing in React, WordPress, Android, and Flutter",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#667eea",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["business", "education", "productivity"],
+  "lang": "en-US",
+  "dir": "ltr"
+}
