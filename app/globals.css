@@ -865,9 +865,11 @@ body {
 /* Skills Cards Grid */
 .skills-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 1.5rem;
     padding: 1rem 0;
+    justify-items: center;
+    max-width: 100%;
 }
 
 /* Individual Skill Card */
@@ -876,6 +878,8 @@ body {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.5s ease;
+    width: 100%;
+    max-width: 180px;
 }
 
 .skill-card.visible {
@@ -888,7 +892,6 @@ body {
     width: 100%;
     height: 180px;
     transition: transform 0.4s ease;
-    transform-style: preserve-3d;
 }
 
 .skill-card:hover .skill-card-inner {
@@ -899,7 +902,6 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
     background: var(--card-bg);
     backdrop-filter: blur(10px);
     border: 2px solid rgba(99, 102, 241, 0.2);
@@ -948,7 +950,8 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    transition: transform 0.3s ease;
+    filter: drop-shadow(0 4px 8px rgba(99, 102, 241, 0.3));
+    transition: filter 0.3s ease;
 }
 
 .skill-card:hover .skill-icon-large {
@@ -956,16 +959,7 @@ body {
 }
 
 .skill-card:hover .skill-icon-large img {
-    filter: drop-shadow(0 8px 16px rgba(99, 102, 241, 0.5)) !important;
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
+    filter: drop-shadow(0 8px 16px rgba(99, 102, 241, 0.5));
 }
 
 .skill-name-large {
@@ -1410,8 +1404,12 @@ body {
     }
 
     .skills-cards {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
         gap: 1.2rem;
+    }
+
+    .skill-card {
+        max-width: 160px;
     }
 
     .education-grid {
@@ -1522,8 +1520,12 @@ body {
     }
 
     .skills-cards {
-        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
         gap: 1rem;
+    }
+
+    .skill-card {
+        max-width: 150px;
     }
 
     .skill-card-inner {
@@ -1559,7 +1561,11 @@ body {
     }
 
     .skills-cards {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .skill-card {
+        max-width: 140px;
     }
 
     .btn {
