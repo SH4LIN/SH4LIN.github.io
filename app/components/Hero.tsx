@@ -41,6 +41,14 @@ export default function Hero({ profile }: { profile: ProfileData }) {
     return () => clearTimeout(timeout)
   }, [profile, roleIndex, charIndex, isDeleting])
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      const offsetTop = element.offsetTop - 80
+      window.scrollTo({ top: offsetTop, behavior: 'smooth' })
+    }
+  }
+
   return (
     <section id="hero" className="hero-section">
       <div className="hero-content">
@@ -55,11 +63,19 @@ export default function Hero({ profile }: { profile: ProfileData }) {
           Building exceptional digital experiences through code
         </p>
         <div className="hero-buttons">
-          <a href="#contact" className="btn btn-primary">
+          <a 
+            href="#contact" 
+            className="btn btn-primary"
+            onClick={(e) => { e.preventDefault(); scrollToSection('contact') }}
+          >
             <span>Get In Touch</span>
             <div className="btn-particles"></div>
           </a>
-          <a href="#experience" className="btn btn-secondary">
+          <a 
+            href="#experience" 
+            className="btn btn-secondary"
+            onClick={(e) => { e.preventDefault(); scrollToSection('experience') }}
+          >
             <span>View My Work</span>
             <div className="btn-particles"></div>
           </a>

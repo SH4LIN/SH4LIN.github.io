@@ -1,6 +1,15 @@
 'use client'
 import { useEffect } from 'react'
 
+const skillIcons: { [key: string]: string } = {
+  'Frontend': '🎨',
+  'Backend': '⚙️',
+  'DevOps': '🚀',
+  'Database': '💾',
+  'Tools': '🛠️',
+  'Cloud': '☁️'
+}
+
 export default function Skills({ skills }: { skills: any }) {
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -13,7 +22,7 @@ export default function Skills({ skills }: { skills: any }) {
           })
         }
       })
-    }, { threshold: 0.5 })
+    }, { threshold: 0.3 })
 
     document.querySelectorAll('.skill-category').forEach(category => {
       observer.observe(category)
@@ -35,11 +44,17 @@ export default function Skills({ skills }: { skills: any }) {
         <div className="skills-grid">
           {skills.categories.map((category: any, index: number) => (
             <div key={index} className="skill-category" data-aos="zoom-in" data-aos-delay={index * 100}>
-              <h3>{category.name}</h3>
+              <div className="skill-category-header">
+                <span className="skill-icon">{skillIcons[category.name] || '💡'}</span>
+                <h3>{category.name}</h3>
+              </div>
               <div className="skills-list">
                 {category.skills.map((skill: any, i: number) => (
                   <div key={i} className="skill-item">
-                    <span className="skill-name">{skill.name}</span>
+                    <div className="skill-info">
+                      <span className="skill-name">{skill.name}</span>
+                      <span className="skill-level">{skill.level}%</span>
+                    </div>
                     <div className="skill-bar">
                       <div className="skill-progress" data-progress={skill.level}></div>
                     </div>
