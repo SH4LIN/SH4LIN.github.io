@@ -1,4 +1,5 @@
 interface EducationItem {
+  id?: string | number
   institution: string
   degree: string
   duration: string
@@ -20,7 +21,7 @@ export default function Education({ education }: { education: EducationItem[] })
         <div className="education-grid">
           {education.map((edu, index) => (
             <div
-              key={edu.id}
+              key={edu.id || index}
               className="education-card"
               data-aos="zoom-in"
               data-aos-delay={index * 100}

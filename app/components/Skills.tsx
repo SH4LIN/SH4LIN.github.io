@@ -117,6 +117,7 @@ export default function Skills({ skills }: { skills: SkillsData }) {
                         <div className="skill-card-inner">
                           <div className="skill-card-front">
                             <div className="skill-icon-large">
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
                               <img
                                 src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${skillInfo.logo}/${skillInfo.logo}-original.svg`}
                                 alt={skill.name}
