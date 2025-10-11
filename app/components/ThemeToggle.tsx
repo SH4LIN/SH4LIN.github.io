@@ -17,13 +17,15 @@ export default function ThemeToggle() {
     document.documentElement.setAttribute('data-theme', initialTheme)
   }, [])
 
-  const toggleTheme = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark'
 
     // Check if View Transitions API is supported
-    if ('startViewTransition' in document) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    if ((document as any).startViewTransition) {
       // Use View Transitions API for smooth animation
-      ;(document as any).startViewTransition(() => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (document as any).startViewTransition(() => {
         setTheme(newTheme)
         document.documentElement.setAttribute('data-theme', newTheme)
         localStorage.setItem('theme', newTheme)
