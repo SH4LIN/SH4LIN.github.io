@@ -8,19 +8,21 @@
    
    Structure:
    1. Variables (colors, spacing, etc.)
-   2. Base styles and reset
-   3. Navigation
-   4. Hero section
-   5. Shared components (buttons, titles)
-   6. Main sections (about, experience, skills, education, contact)
-   7. Skills section (separate for modularity)
-   8. Animations
-   9. Responsive design
+   2. Theme system (dark/light mode)
+   3. Base styles and reset
+   4. Navigation
+   5. Hero section
+   6. Shared components (buttons, titles)
+   7. Main sections (about, experience, skills, education, contact)
+   8. Skills section (separate for modularity)
+   9. Animations
+   10. Responsive design
    
 ======================================== */
 
 /* Import modular stylesheets */
 @import './styles/variables.css';
+@import './styles/theme.css';
 @import './styles/base.css';
 @import './styles/navigation.css';
 @import './styles/hero.css';

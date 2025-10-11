@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import ThemeToggle from './ThemeToggle'
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
@@ -100,14 +101,17 @@ export default function Navigation() {
             </a>
           </li>
         </ul>
-        <div 
-          className={`hamburger ${mobileMenuOpen ? 'active' : ''}`}
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle navigation menu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
+        <div className="nav-actions">
+          <ThemeToggle />
+          <div 
+            className={`hamburger ${mobileMenuOpen ? 'active' : ''}`}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </div>
     </nav>

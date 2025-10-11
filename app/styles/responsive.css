@@ -7,6 +7,16 @@
     }
 
     /* Navigation */
+    .nav-actions {
+        gap: 0.5rem;
+    }
+
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+        margin-right: 0.5rem;
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -20,6 +30,10 @@
         padding: 2rem 0;
         border-top: 1px solid rgba(99, 102, 241, 0.2);
         gap: 0;
+    }
+
+    [data-theme='light'] .nav-menu {
+        background: rgba(255, 255, 255, 0.98);
     }
 
     .nav-menu li {
