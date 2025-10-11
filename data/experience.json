@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "position": "React Developer & WordPress Developer",
+    "company": "TeamUpdraft",
+    "location": "Ahmedabad, Gujarat",
+    "startDate": "September 2025",
+    "endDate": "Present",
+    "current": true,
+    "description": [
+      "Maintaining and enhancing Burst Statistics, a privacy-friendly statistics analysis tool that prioritizes user data protection",
+      "Developing new features and functionality for the Burst Statistics product using React and WordPress",
+      "Identifying and resolving bugs to ensure optimal performance and user experience",
+      "Implementing privacy-first analytics solutions that comply with data protection regulations",
+      "Collaborating with cross-functional teams to deliver high-quality product updates"
+    ],
+    "technologies": ["React", "WordPress", "JavaScript", "PHP", "Privacy Analytics", "Statistics"]
+  },
+  {
+    "id": 2,
+    "position": "WordPress Developer",
+    "company": "rtCamp Solutions Private Limited",
+    "location": "Ahmedabad, Gujarat",
+    "startDate": "January 2023",
+    "endDate": "August 2025",
+    "current": false,
+    "description": [
+      "Completed comprehensive training in WordPress development, encompassing plugin and theme development, followed by advanced studies in Gutenberg block development",
+      "Led migration project from Umbraco CMS to WordPress, implementing WPML for multilingual support and ACF plugin for enhanced functionality",
+      "Optimized site SEO using Yoast SEO plugin and developed custom multilingual HTML sitemap aligned with client requirements",
+      "Gained solid foundation in WordPress development and proficiency in managing complex migration projects efficiently"
+    ],
+    "technologies": ["WordPress", "WPML", "ACF", "Yoast SEO", "Gutenberg", "PHP", "JavaScript"]
+  },
+  {
+    "id": 3,
+    "position": "Android Developer",
+    "company": "Techuz InfoWeb Pvt. Ltd",
+    "location": "Ahmedabad, Gujarat",
+    "startDate": "April 2022",
+    "endDate": "December 2022",
+    "current": false,
+    "description": [
+      "Enhanced 'Smart Brain' game by adding 20-30 engaging puzzle levels, demonstrating proficiency in Kotlin without gaming engines",
+      "Led end-to-end development of encryption chat system and social media application for client",
+      "Architected foundational structure for chat system, laying groundwork for future enhancements",
+      "Demonstrated adaptability as Android and Flutter developer, handling diverse and challenging projects"
+    ],
+    "technologies": ["Kotlin", "Flutter", "Android", "Encryption", "Chat Systems", "Dart"]
+  },
+  {
+    "id": 4,
+    "position": "Android Developer",
+    "company": "Summachar",
+    "location": "Ahmedabad, Gujarat",
+    "startDate": "July 2021",
+    "endDate": "January 2022",
+    "current": false,
+    "description": [
+      "Managed existing mobile application using Kotlin with significant UI improvements for enhanced user experience",
+      "Spearheaded development of new application versions, leading to complete UI overhaul",
+      "Successfully developed hybrid mobile application from scratch using latest technologies and best practices",
+      "Played key role in migration from Kotlin to Flutter, showcasing expertise in both native and cross-platform development"
+    ],
+    "technologies": ["Kotlin", "Flutter", "Android", "UI/UX", "Migration"]
+  },
+  {
+    "id": 5,
+    "position": "Android Developer",
+    "company": "SocialPilot",
+    "location": "Ahmedabad, Gujarat",
+    "startDate": "May 2020",
+    "endDate": "November 2020",
+    "current": false,
+    "description": [
+      "Redesigned mobile application UI, delivering modern and user-friendly interface",
+      "Developed dynamic user interfaces adapting to varying API responses for personalized experiences",
+      "Implemented robust error handling, data synchronization, and performance optimization",
+      "Showcased commitment to continuous learning, staying current with latest Android development trends"
+    ],
+    "technologies": ["Android", "Kotlin", "UI/UX", "API Integration", "Performance"]
+  }
+]
