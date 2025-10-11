@@ -33,8 +33,7 @@ const skillLogos: { [key: string]: { logo: string; color: string } } = {
 
 interface Skill {
   name: string
-  level?: string
-  description?: string
+  level: number
 }
 
 interface Category {

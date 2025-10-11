@@ -1,7 +1,11 @@
 interface ExperienceItem {
+  id: number
   company: string
   position: string
-  duration: string
+  location: string
+  startDate: string
+  endDate: string
+  current: boolean
   description: string[]
   technologies?: string[]
 }

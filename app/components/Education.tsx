@@ -1,10 +1,12 @@
 interface EducationItem {
-  id?: string | number
-  institution: string
+  id: number
   degree: string
-  duration: string
-  cgpa?: string
-  description?: string
+  field: string
+  institution: string
+  location: string
+  startYear: number
+  endYear: number
+  description: string
 }
 
 export default function Education({ education }: { education: EducationItem[] }) {

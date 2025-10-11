@@ -1,4 +1,12 @@
-export default function Contact({ profile }: { profile: { email: string; phone: string; location: string; github: string; linkedin: string } }) {
+interface ProfileData {
+  email: string
+  phone: string
+  location: string
+  github: string
+  linkedin: string
+}
+
+export default function Contact({ profile }: { profile: ProfileData }) {
   return (
     <section id="contact" className="contact-section">
       <div className="container">
