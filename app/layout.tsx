@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import StructuredData from './components/StructuredData'
 import { GoogleTagManager } from '@next/third-parties/google'
+import React from 'react'
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://sh4lin.me'),
