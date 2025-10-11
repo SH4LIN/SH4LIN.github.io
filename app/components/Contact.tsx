@@ -1,6 +1,4 @@
 export default function Contact({ profile }: { profile: any }) {
-  if (!profile) return null
-
   return (
     <section id="contact" className="contact-section">
       <div className="container">

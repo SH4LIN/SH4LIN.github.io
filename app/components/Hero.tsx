@@ -7,7 +7,7 @@ interface ProfileData {
   roles: string[]
 }
 
-export default function Hero({ profile }: { profile: ProfileData | null }) {
+export default function Hero({ profile }: { profile: ProfileData }) {
   const [currentRole, setCurrentRole] = useState('')
   const [roleIndex, setRoleIndex] = useState(0)
   const [charIndex, setCharIndex] = useState(0)
