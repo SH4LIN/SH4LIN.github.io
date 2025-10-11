@@ -12,7 +12,7 @@ export default function ThemeToggle() {
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null
     const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
     const initialTheme = savedTheme || systemTheme
-    
+
     setTheme(initialTheme)
     document.documentElement.setAttribute('data-theme', initialTheme)
   }, [])
@@ -23,9 +23,12 @@ export default function ThemeToggle() {
     const x = rect.left + rect.width / 2
     const y = rect.top + rect.height / 2
 
+    const newTheme = theme === 'dark' ? 'light' : 'dark'
+
     // Create expanding circle overlay
     const overlay = document.createElement('div')
     overlay.className = 'theme-transition-overlay'
+    overlay.setAttribute('data-theme-transition', newTheme)
     overlay.style.left = `${x}px`
     overlay.style.top = `${y}px`
     document.body.appendChild(overlay)
@@ -38,18 +41,17 @@ export default function ThemeToggle() {
 
     overlay.style.setProperty('--max-size', `${maxDistance * 2}px`)
 
-    // Trigger animation
+    // Change theme immediately and trigger animation
     requestAnimationFrame(() => {
-      overlay.classList.add('active')
-    })
-
-    // Change theme after animation starts
-    setTimeout(() => {
-      const newTheme = theme === 'dark' ? 'light' : 'dark'
       setTheme(newTheme)
       document.documentElement.setAttribute('data-theme', newTheme)
       localStorage.setItem('theme', newTheme)
-    }, 400)
+
+      // Start animation after theme is set
+      requestAnimationFrame(() => {
+        overlay.classList.add('active')
+      })
+    })
 
     // Remove overlay after animation
     setTimeout(() => {

@@ -18,25 +18,28 @@ export default function Hero({ profile }: { profile: ProfileData }) {
 
     const roles = profile.roles
     const currentText = roles[roleIndex]
-    
-    const timeout = setTimeout(() => {
-      if (isDeleting) {
-        setCurrentRole(currentText.substring(0, charIndex - 1))
-        setCharIndex(charIndex - 1)
-        
-        if (charIndex === 0) {
-          setIsDeleting(false)
-          setRoleIndex((roleIndex + 1) % roles.length)
+
+    const timeout = setTimeout(
+      () => {
+        if (isDeleting) {
+          setCurrentRole(currentText.substring(0, charIndex - 1))
+          setCharIndex(charIndex - 1)
+
+          if (charIndex === 0) {
+            setIsDeleting(false)
+            setRoleIndex((roleIndex + 1) % roles.length)
+          }
+        } else {
+          setCurrentRole(currentText.substring(0, charIndex + 1))
+          setCharIndex(charIndex + 1)
+
+          if (charIndex === currentText.length) {
+            setTimeout(() => setIsDeleting(true), 2000)
+          }
         }
-      } else {
-        setCurrentRole(currentText.substring(0, charIndex + 1))
-        setCharIndex(charIndex + 1)
-        
-        if (charIndex === currentText.length) {
-          setTimeout(() => setIsDeleting(true), 2000)
-        }
-      }
-    }, isDeleting ? 50 : 100)
+      },
+      isDeleting ? 50 : 100
+    )
 
     return () => clearTimeout(timeout)
   }, [profile, roleIndex, charIndex, isDeleting])
@@ -59,22 +62,26 @@ export default function Hero({ profile }: { profile: ProfileData }) {
           <span className="typing-text">{currentRole}</span>
           <span className="cursor">|</span>
         </div>
-        <p className="hero-description">
-          Building exceptional digital experiences through code
-        </p>
+        <p className="hero-description">Building exceptional digital experiences through code</p>
         <div className="hero-buttons">
-          <a 
-            href="#contact" 
+          <a
+            href="#contact"
             className="btn btn-primary"
-            onClick={(e) => { e.preventDefault(); scrollToSection('contact') }}
+            onClick={(e) => {
+              e.preventDefault()
+              scrollToSection('contact')
+            }}
           >
             <span>Get In Touch</span>
             <div className="btn-particles"></div>
           </a>
-          <a 
-            href="#experience" 
+          <a
+            href="#experience"
             className="btn btn-secondary"
-            onClick={(e) => { e.preventDefault(); scrollToSection('experience') }}
+            onClick={(e) => {
+              e.preventDefault()
+              scrollToSection('experience')
+            }}
           >
             <span>View My Work</span>
             <div className="btn-particles"></div>

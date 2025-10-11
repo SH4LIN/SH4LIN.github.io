@@ -6,14 +6,15 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://sh4lin.me'),
   title: {
     default: 'Shalin Shah - Full Stack Developer | React, WordPress, Android & Flutter',
-    template: '%s | Shalin Shah'
+    template: '%s | Shalin Shah',
   },
-  description: 'Full Stack Developer in Ahmedabad specializing in React, WordPress, Android & Flutter. Expert in JavaScript, TypeScript, Kotlin, PHP. Available for projects.',
+  description:
+    'Full Stack Developer in Ahmedabad specializing in React, WordPress, Android & Flutter. Expert in JavaScript, TypeScript, Kotlin, PHP. Available for projects.',
   keywords: [
     'Shalin Shah',
     'Full Stack Developer',
     'React Developer',
-    'WordPress Developer', 
+    'WordPress Developer',
     'Android Developer',
     'Flutter Developer',
     'Ahmedabad Developer',
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     'Next.js Developer',
     'Spring Boot',
     'REST API Development',
-    'Freelance Developer India'
+    'Freelance Developer India',
   ],
   authors: [{ name: 'Shalin Shah', url: 'https://sh4lin.me' }],
   creator: 'Shalin Shah',
@@ -43,13 +44,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   icons: {
-    icon: [
-      { url: '/favicon.ico' },
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-    ],
-    apple: [
-      { url: '/apple-touch-icon.svg' },
-    ],
+    icon: [{ url: '/favicon.ico' }, { url: '/favicon.svg', type: 'image/svg+xml' }],
+    apple: [{ url: '/apple-touch-icon.svg' }],
   },
   openGraph: {
     type: 'website',
@@ -57,7 +53,8 @@ export const metadata: Metadata = {
     url: 'https://sh4lin.me',
     siteName: 'Shalin Shah - Full Stack Developer Portfolio',
     title: 'Shalin Shah - Full Stack Developer | React, WordPress, Android & Flutter',
-    description: 'Experienced Full Stack Developer specializing in React, WordPress, Android, and Flutter development. Expert in modern web and mobile technologies.',
+    description:
+      'Experienced Full Stack Developer specializing in React, WordPress, Android, and Flutter development. Expert in modern web and mobile technologies.',
     images: [
       {
         url: '/og-image.svg',
@@ -72,13 +69,14 @@ export const metadata: Metadata = {
         height: 627,
         alt: 'Shalin Shah - Full Stack Developer',
         type: 'image/svg+xml',
-      }
+      },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Shalin Shah - Full Stack Developer | React, WordPress, Android & Flutter',
-    description: 'Experienced Full Stack Developer specializing in React, WordPress, Android, and Flutter development.',
+    description:
+      'Experienced Full Stack Developer specializing in React, WordPress, Android, and Flutter development.',
     creator: '@SH4LIN',
     images: ['/twitter-image.svg'],
   },
@@ -102,18 +100,17 @@ export const metadata: Metadata = {
   category: 'technology',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
         <StructuredData />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap"
+          rel="stylesheet"
+        />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#667eea" />

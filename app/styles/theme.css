@@ -87,17 +87,18 @@
     height: 0;
     border-radius: 50%;
     pointer-events: none;
-    z-index: 9998;
+    z-index: 9999;
     transform: translate(-50%, -50%);
     transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1),
                 height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-[data-theme='dark'] .theme-transition-overlay {
+/* Overlay shows the NEW theme colors */
+.theme-transition-overlay[data-theme-transition='dark'] {
     background: radial-gradient(circle, #0f172a 0%, #020617 100%);
 }
 
-[data-theme='light'] .theme-transition-overlay {
+.theme-transition-overlay[data-theme-transition='light'] {
     background: radial-gradient(circle, #ffffff 0%, #f8fafc 100%);
 }
 

@@ -1,6 +1,6 @@
 export default function Education({ education }: { education: any[] }) {
   const icons = ['🎓', '📚']
-  
+
   return (
     <section id="education" className="education-section">
       <div className="container">
@@ -11,13 +11,20 @@ export default function Education({ education }: { education: any[] }) {
         </h2>
         <div className="education-grid">
           {education.map((edu, index) => (
-            <div key={edu.id} className="education-card" data-aos="zoom-in" data-aos-delay={index * 100}>
+            <div
+              key={edu.id}
+              className="education-card"
+              data-aos="zoom-in"
+              data-aos-delay={index * 100}
+            >
               <div className="education-icon">{icons[index] || '🎓'}</div>
               <h3>{edu.degree}</h3>
               <p className="degree">{edu.field}</p>
               <p className="institution">{edu.institution}</p>
               <p className="location">{edu.location}</p>
-              <p className="duration">{edu.startYear} - {edu.endYear}</p>
+              <p className="duration">
+                {edu.startYear} - {edu.endYear}
+              </p>
               <p className="education-description">{edu.description}</p>
             </div>
           ))}

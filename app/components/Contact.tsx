@@ -9,8 +9,8 @@ export default function Contact({ profile }: { profile: any }) {
         </h2>
         <div className="contact-content" data-aos="fade-up">
           <p className="contact-intro">
-            I'm currently open to new opportunities and interesting projects. Whether you have a question, 
-            want to collaborate, or just want to say hi, feel free to reach out!
+            I'm currently open to new opportunities and interesting projects. Whether you have a
+            question, want to collaborate, or just want to say hi, feel free to reach out!
           </p>
           <div className="contact-info">
             <a href={`mailto:${profile.email}`} className="contact-item">
@@ -21,11 +21,21 @@ export default function Contact({ profile }: { profile: any }) {
               <span className="contact-icon">📱</span>
               <span>{profile.phone}</span>
             </a>
-            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="contact-item">
+            <a
+              href={profile.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-item"
+            >
               <span className="contact-icon">💼</span>
               <span>LinkedIn Profile</span>
             </a>
-            <a href={profile.github} target="_blank" rel="noopener noreferrer" className="contact-item">
+            <a
+              href={profile.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-item"
+            >
               <span className="contact-icon">💻</span>
               <span>GitHub Profile</span>
             </a>

@@ -1,34 +1,34 @@
 'use client'
 import { useEffect, useState } from 'react'
 
-    const categoryData: { [key: string]: { icon: string } } = {
+const categoryData: { [key: string]: { icon: string } } = {
   'Frontend Development': { icon: '⚛️' },
   'Mobile Development': { icon: '📱' },
   'Backend & CMS': { icon: '⚙️' },
-  'Tools & Technologies': { icon: '🛠️' }
+  'Tools & Technologies': { icon: '🛠️' },
 }
 
 const skillLogos: { [key: string]: { logo: string; color: string } } = {
-  'React': { logo: 'react', color: '61DAFB' },
-  'JavaScript': { logo: 'javascript', color: 'F7DF1E' },
-  'HTML5': { logo: 'html5', color: 'E34F26' },
-  'CSS3': { logo: 'css3', color: '1572B6' },
-  'TypeScript': { logo: 'typescript', color: '3178C6' },
-  'Android': { logo: 'android', color: '3DDC84' },
-  'Kotlin': { logo: 'kotlin', color: '7F52FF' },
-  'Flutter': { logo: 'flutter', color: '02569B' },
-  'Dart': { logo: 'dart', color: '0175C2' },
-  'Java': { logo: 'java', color: '007396' },
-  'WordPress': { logo: 'wordpress', color: '21759B' },
-  'PHP': { logo: 'php', color: '777BB4' },
-  'Firebase': { logo: 'firebase', color: 'FFCA28' },
+  React: { logo: 'react', color: '61DAFB' },
+  JavaScript: { logo: 'javascript', color: 'F7DF1E' },
+  HTML5: { logo: 'html5', color: 'E34F26' },
+  CSS3: { logo: 'css3', color: '1572B6' },
+  TypeScript: { logo: 'typescript', color: '3178C6' },
+  Android: { logo: 'android', color: '3DDC84' },
+  Kotlin: { logo: 'kotlin', color: '7F52FF' },
+  Flutter: { logo: 'flutter', color: '02569B' },
+  Dart: { logo: 'dart', color: '0175C2' },
+  Java: { logo: 'java', color: '007396' },
+  WordPress: { logo: 'wordpress', color: '21759B' },
+  PHP: { logo: 'php', color: '777BB4' },
+  Firebase: { logo: 'firebase', color: 'FFCA28' },
   'Spring Boot': { logo: 'spring', color: '6DB33F' },
   'Node.js': { logo: 'nodedotjs', color: '339933' },
-  'Git': { logo: 'git', color: 'F05032' },
-  'GitHub': { logo: 'github', color: '181717' },
-  'Jira': { logo: 'jira', color: '0052CC' },
+  Git: { logo: 'git', color: 'F05032' },
+  GitHub: { logo: 'github', color: '181717' },
+  Jira: { logo: 'jira', color: '0052CC' },
   'REST APIs': { logo: 'fastapi', color: '009688' },
-  'Databases': { logo: 'mysql', color: '4479A1' }
+  Databases: { logo: 'mysql', color: '4479A1' },
 }
 
 export default function Skills({ skills }: { skills: any }) {

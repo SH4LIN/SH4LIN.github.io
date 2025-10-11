@@ -18,7 +18,9 @@ export default function Experience({ experience }: { experience: any[] }) {
                 </div>
                 <div className="job-meta">
                   <span className="location">📍 {job.location}</span>
-                  <span className="date">🗓️ {job.startDate} - {job.endDate}</span>
+                  <span className="date">
+                    🗓️ {job.startDate} - {job.endDate}
+                  </span>
                 </div>
                 <ul className="job-description">
                   {job.description.map((desc: string, i: number) => (
@@ -27,7 +29,9 @@ export default function Experience({ experience }: { experience: any[] }) {
                 </ul>
                 <div className="job-tech">
                   {job.technologies.map((tech: string, i: number) => (
-                    <span key={i} className="tech-tag">{tech}</span>
+                    <span key={i} className="tech-tag">
+                      {tech}
+                    </span>
                   ))}
                 </div>
               </div>

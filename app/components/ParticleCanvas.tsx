@@ -25,7 +25,7 @@ export default function ParticleCanvas() {
     }> = []
 
     const particleCount = window.innerWidth < 768 ? 30 : 60
-    
+
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
@@ -33,7 +33,7 @@ export default function ParticleCanvas() {
         vx: (Math.random() - 0.5) * 0.5,
         vy: (Math.random() - 0.5) * 0.5,
         radius: Math.random() * 2 + 1,
-        color: `rgba(99, 102, 241, ${Math.random() * 0.5 + 0.2})`
+        color: `rgba(99, 102, 241, ${Math.random() * 0.5 + 0.2})`,
       })
     }
 
@@ -44,7 +44,7 @@ export default function ParticleCanvas() {
 
     function animate() {
       if (!ctx || !canvas) return
-      
+
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       particles.forEach((particle, index) => {

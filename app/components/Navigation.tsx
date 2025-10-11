@@ -11,10 +11,10 @@ export default function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 100)
-      
+
       // Update active section based on scroll position
       const sections = ['hero', 'about', 'experience', 'skills', 'education', 'contact']
-      const current = sections.find(section => {
+      const current = sections.find((section) => {
         const element = document.getElementById(section)
         if (element) {
           const rect = element.getBoundingClientRect()
@@ -22,7 +22,7 @@ export default function Navigation() {
         }
         return false
       })
-      
+
       if (current) setActiveSection(current)
     }
 
@@ -42,60 +42,85 @@ export default function Navigation() {
   return (
     <nav className={`nav-container ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-content">
-        <a href="#hero" className="logo" onClick={(e) => { e.preventDefault(); scrollToSection('hero') }}>
+        <a
+          href="#hero"
+          className="logo"
+          onClick={(e) => {
+            e.preventDefault()
+            scrollToSection('hero')
+          }}
+        >
           <span className="logo-text">Shalin</span>
         </a>
         <ul className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
           <li>
-            <a 
-              href="#hero" 
+            <a
+              href="#hero"
               className={`nav-link ${activeSection === 'hero' ? 'active' : ''}`}
-              onClick={(e) => { e.preventDefault(); scrollToSection('hero') }}
+              onClick={(e) => {
+                e.preventDefault()
+                scrollToSection('hero')
+              }}
             >
               Home
             </a>
           </li>
           <li>
-            <a 
-              href="#about" 
+            <a
+              href="#about"
               className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
-              onClick={(e) => { e.preventDefault(); scrollToSection('about') }}
+              onClick={(e) => {
+                e.preventDefault()
+                scrollToSection('about')
+              }}
             >
               About
             </a>
           </li>
           <li>
-            <a 
-              href="#experience" 
+            <a
+              href="#experience"
               className={`nav-link ${activeSection === 'experience' ? 'active' : ''}`}
-              onClick={(e) => { e.preventDefault(); scrollToSection('experience') }}
+              onClick={(e) => {
+                e.preventDefault()
+                scrollToSection('experience')
+              }}
             >
               Experience
             </a>
           </li>
           <li>
-            <a 
-              href="#skills" 
+            <a
+              href="#skills"
               className={`nav-link ${activeSection === 'skills' ? 'active' : ''}`}
-              onClick={(e) => { e.preventDefault(); scrollToSection('skills') }}
+              onClick={(e) => {
+                e.preventDefault()
+                scrollToSection('skills')
+              }}
             >
               Skills
             </a>
           </li>
           <li>
-            <a 
-              href="#education" 
+            <a
+              href="#education"
               className={`nav-link ${activeSection === 'education' ? 'active' : ''}`}
-              onClick={(e) => { e.preventDefault(); scrollToSection('education') }}
+              onClick={(e) => {
+                e.preventDefault()
+                scrollToSection('education')
+              }}
             >
               Education
             </a>
           </li>
           <li>
-            <a 
-              href="#contact" 
+            <a
+              href="#contact"
               className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}
-              onClick={(e) => { e.preventDefault(); scrollToSection('contact') }}
+              onClick={(e) => {
+                e.preventDefault()
+                scrollToSection('contact')
+              }}
             >
               Contact
             </a>
@@ -103,7 +128,7 @@ export default function Navigation() {
         </ul>
         <div className="nav-actions">
           <ThemeToggle />
-          <div 
+          <div
             className={`hamburger ${mobileMenuOpen ? 'active' : ''}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
