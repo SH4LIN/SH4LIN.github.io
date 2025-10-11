@@ -60,7 +60,7 @@ export default function Hero({ profile }: { profile: ProfileData }) {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.6, 0.05, 0.01, 0.9] as const
+        ease: [0.25, 0.46, 0.45, 0.94] as const
       }
     }
   }

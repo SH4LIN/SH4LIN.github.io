@@ -60,7 +60,7 @@ export default function About({ profile }: { profile: ProfileData }) {
             y: 0,
             transition: { 
                 duration: 0.6,
-                ease: [0.6, 0.05, 0.01, 0.9] as const
+                ease: [0.25, 0.46, 0.45, 0.94] as const
             }
         }
     }
@@ -72,10 +72,10 @@ export default function About({ profile }: { profile: ProfileData }) {
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3, margin: "0px 0px -100px 0px" }}
           transition={{ 
-            duration: 0.6,
-            ease: [0.6, 0.05, 0.01, 0.9] as const
+            duration: 0.8,
+            ease: [0.25, 0.46, 0.45, 0.94] as const
           }}
         >
           <span className="title-number">01.</span>
@@ -88,10 +88,10 @@ export default function About({ profile }: { profile: ProfileData }) {
               className="profile-card"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.3, margin: "0px 0px -100px 0px" }}
               transition={{ 
                 duration: 0.8,
-                ease: [0.6, 0.05, 0.01, 0.9] as const
+                ease: [0.25, 0.46, 0.45, 0.94] as const
               }}
               whileHover={{ 
                 y: -10,
