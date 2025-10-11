@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     default: 'Shalin Shah - Full Stack Developer | React, WordPress, Android & Flutter',
     template: '%s | Shalin Shah'
   },
-  description: 'Experienced Full Stack Developer in Ahmedabad specializing in React, WordPress, Android, and Flutter development. Expert in JavaScript, TypeScript, Kotlin, PHP, Firebase, and modern web technologies. Available for freelance projects and consultations.',
+  description: 'Full Stack Developer in Ahmedabad specializing in React, WordPress, Android & Flutter. Expert in JavaScript, TypeScript, Kotlin, PHP. Available for projects.',
   keywords: [
     'Shalin Shah',
     'Full Stack Developer',
