@@ -46,7 +46,7 @@
 /* AOS Animation States */
 [data-aos] {
     opacity: 0;
-    transition: all 0.8s ease;
+    transition: all 0.4s ease;
 }
 
 [data-aos].aos-animate {
@@ -54,19 +54,19 @@
 }
 
 [data-aos='fade-up'].aos-animate {
-    animation: fadeInUp 0.8s ease;
+    animation: fadeInUp 0.4s ease;
 }
 
 [data-aos='fade-right'].aos-animate {
-    animation: fadeInRight 0.8s ease;
+    animation: fadeInRight 0.4s ease;
 }
 
 [data-aos='zoom-in'].aos-animate {
-    animation: zoomIn 0.8s ease;
+    animation: zoomIn 0.4s ease;
 }
 
 [data-aos='flip-left'].aos-animate {
-    animation: flipLeft 0.8s ease;
+    animation: flipLeft 0.4s ease;
 }
 
 [data-aos='fade-up'] {

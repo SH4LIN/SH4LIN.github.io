@@ -37,7 +37,7 @@
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     position: relative;
     overflow: hidden;
 }
@@ -51,7 +51,7 @@
     height: 100%;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.2s ease;
     z-index: -1;
 }
 
@@ -68,7 +68,7 @@
 
 .tab-icon {
     font-size: 1.5rem;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 .skill-tab:hover .tab-icon,
@@ -89,7 +89,7 @@
 .skills-content {
     display: none;
     opacity: 0;
-    animation: fadeIn 0.5s ease forwards;
+    animation: fadeIn 0.3s ease forwards;
 }
 
 .skills-content.active {
@@ -117,7 +117,7 @@
     perspective: 1000px;
     opacity: 0;
     transform: translateY(30px);
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
     width: 100%;
     max-width: 180px;
 }
@@ -131,7 +131,7 @@
     position: relative;
     width: 100%;
     height: 180px;
-    transition: transform 0.4s ease;
+    transition: transform 0.25s ease;
 }
 
 .skill-card:hover .skill-card-inner {
@@ -152,7 +152,7 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    transition: all 0.4s ease;
+    transition: all 0.25s ease;
     overflow: hidden;
 }
 
@@ -170,7 +170,7 @@
         var(--accent-color)
     );
     transform: scaleX(0);
-    transition: transform 0.4s ease;
+    transition: transform 0.25s ease;
 }
 
 .skill-card:hover .skill-card-front::before {
@@ -188,7 +188,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 .skill-icon-large img {
@@ -196,7 +196,7 @@
     height: 100%;
     object-fit: contain;
     filter: drop-shadow(0 4px 8px rgba(99, 102, 241, 0.3));
-    transition: filter 0.3s ease;
+    transition: filter 0.2s ease;
 }
 
 .skill-card:hover .skill-icon-large {
