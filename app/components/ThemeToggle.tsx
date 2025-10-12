@@ -21,11 +21,13 @@ export default function ThemeToggle() {
 
     const toggleTheme = () => {
         const newTheme = theme === 'dark' ? 'light' : 'dark'
+        const isMobile = window.innerWidth <= 768
 
-        // Check if View Transitions API is supported
+        // On mobile: instant change (no flicker)
+        // On desktop: smooth transition
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        if ((document as any).startViewTransition) {
-            // Use View Transitions API for smooth animation
+        if (!isMobile && (document as any).startViewTransition) {
+            // Use View Transitions API for smooth animation on desktop
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             ;(document as any).startViewTransition(() => {
                 setTheme(newTheme)
@@ -33,18 +35,10 @@ export default function ThemeToggle() {
                 localStorage.setItem('theme', newTheme)
             })
         } else {
-            // Fallback: simple fade transition
-            document.documentElement.classList.add('theme-transitioning')
-
-            setTimeout(() => {
-                setTheme(newTheme)
-                document.documentElement.setAttribute('data-theme', newTheme)
-                localStorage.setItem('theme', newTheme)
-
-                setTimeout(() => {
-                    document.documentElement.classList.remove('theme-transitioning')
-                }, 300)
-            }, 150)
+            // Instant change for mobile or fallback
+            setTheme(newTheme)
+            document.documentElement.setAttribute('data-theme', newTheme)
+            localStorage.setItem('theme', newTheme)
         }
     }
 
