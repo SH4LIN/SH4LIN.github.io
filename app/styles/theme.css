@@ -85,27 +85,33 @@
     color-scheme: light;
 }
 
+/* Simplified background for better performance */
 [data-theme='light'] body {
-    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 50%, #f8fafc 100%);
+    background: #f8fafc;
 }
 
 [data-theme='light'] .nav-container {
-    background: rgba(255, 255, 255, 0.9);
+    background: #ffffff;
     border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+    backdrop-filter: none;
 }
 
 [data-theme='light'] .nav-container.scrolled {
-    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 2px 10px rgba(99, 102, 241, 0.08);
 }
 
+/* Simplified card backgrounds for performance */
 [data-theme='light'] .profile-card,
 [data-theme='light'] .timeline-content,
 [data-theme='light'] .skill-card-front,
 [data-theme='light'] .education-card,
 [data-theme='light'] .contact-item {
-    background: rgba(255, 255, 255, 0.95);
+    background: #ffffff;
     border-color: rgba(99, 102, 241, 0.2);
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.08);
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.06);
+    backdrop-filter: none;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 [data-theme='light'] .profile-card:hover,
@@ -113,25 +119,58 @@
 [data-theme='light'] .skill-card-front:hover,
 [data-theme='light'] .education-card:hover,
 [data-theme='light'] .contact-item:hover {
-    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.15);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
 }
 
 [data-theme='light'] .skills-tabs {
-    background: rgba(255, 255, 255, 0.95);
+    background: #ffffff;
     border-color: rgba(99, 102, 241, 0.2);
 }
 
-[data-theme='light'] .shape {
-    opacity: 0.15;
+/* Hide particle effects in light theme for performance */
+[data-theme='light'] #particleCanvas {
+    display: none;
 }
 
-[data-theme='light'] #particleCanvas {
-    opacity: 0.3;
+[data-theme='light'] .shape {
+    display: none;
 }
 
 [data-theme='light'] .footer {
     background: var(--darker-bg);
     border-top: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+/* Optimized animations for light theme */
+[data-theme='light'] .profile-glow {
+    display: none;
+}
+
+[data-theme='light'] .timeline-dot {
+    animation: none;
+    box-shadow: 0 0 10px var(--glow-color);
+}
+
+[data-theme='light'] .education-icon {
+    animation: none;
+}
+
+/* Reduce transitions for better light theme performance */
+[data-theme='light'] * {
+    transition-duration: 0.2s !important;
+}
+
+/* Optimize hover transforms */
+[data-theme='light'] .profile-card:hover {
+    transform: translateY(-5px) translateZ(0);
+}
+
+[data-theme='light'] .timeline-content:hover {
+    transform: translateX(5px) translateZ(0);
+}
+
+[data-theme='light'] .education-card:hover {
+    transform: translateY(-5px) scale(1.01) translateZ(0);
 }
 
 /* View Transitions API Animations */
